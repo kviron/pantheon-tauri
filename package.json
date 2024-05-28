@@ -1,0 +1,46 @@
+{
+  "name": "pantheon",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "tauri": "tauri dev"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@kobalte/core": "^0.13.1",
+    "@solid-primitives/scheduled": "^1.4.3",
+    "@solidjs/router": "^0.13.3",
+    "@stylexjs/stylex": "^0.6.1",
+    "@tauri-apps/api": "^1",
+    "babel-preset-solid": "^1.8.17",
+    "solid-js": "^1.7.8"
+  },
+  "devDependencies": {
+    "@stylexjs/babel-plugin": "^0.6.1",
+    "@stylexjs/rollup-plugin": "^0.6.1",
+    "@tauri-apps/cli": "^1",
+    "@types/node": "^18.19.9",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-solid": "^0.14.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0",
+    "vite-plugin-babel": "^1.2.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-solid": "^2.8.0"
+  }
+}
