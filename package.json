@@ -17,6 +17,7 @@
     "@solidjs/router": "^0.13.3",
     "@stylexjs/stylex": "^0.6.1",
     "@tauri-apps/api": "^1",
+    "axios": "^1.7.2",
     "babel-preset-solid": "^1.8.17",
     "solid-js": "^1.7.8"
   },
