@@ -1,19 +1,9 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import eslint from 'vite-plugin-eslint';
 import solid from 'vite-plugin-solid';
-import babel from 'vite-plugin-babel';
-import stylex from '@stylexjs/rollup-plugin';
 
 export default defineConfig(async () => ({
-    plugins: [
-        solid(),
-        babel(),
-        { ...stylex({}) },
-        {
-            ...eslint({ fix: true }),
-        },
-    ],
+    plugins: [solid()],
     clearScreen: false,
     server: {
         port: 1420,
@@ -25,6 +15,13 @@ export default defineConfig(async () => ({
     resolve: {
         alias: {
             '@': resolve('src'),
+        },
+    },
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        transformMode: {
+            web: [/\.jsx?$/],
         },
     },
     define: {

@@ -1,10 +1,10 @@
-import { render, screen } from '@solidjs/testing-library';
+import { render } from '@solidjs/testing-library';
+import { test, expect, describe } from 'vitest';
 import { Button } from './Button';
 
-describe('Button', () => {
+describe('Button', async () => {
     test('Первый тест', () => {
-        render(() => <Button>Кнопка проверка</Button>);
-
-        expect(screen.getByText('TEST')).toBeInTheDocument();
+        const { getByText } = render(() => <Button>Кнопка</Button>);
+        expect(getByText('Кнопка').innerHTML).toBe('Кнопка');
     });
 });

@@ -1,5 +1,4 @@
-import { ButtonStylex } from './Button.stylex.ts';
-import * as stylex from '@stylexjs/stylex';
+import styles from './Button.module.scss';
 import { Component, JSX, mergeProps } from 'solid-js';
 
 type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -29,11 +28,7 @@ export const Button: Component<ButtonProps> = props => {
 
     return (
         <button
-            {...stylex.props(
-                ButtonStylex.root,
-                finalProps.fullWidth && ButtonStylex.fullWidth,
-                ButtonStylex.size(finalProps.size),
-            )}
+            class={styles.button}
             {...finalProps}
         />
     );
