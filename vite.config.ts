@@ -1,10 +1,14 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
+import suidPlugin from '@suid/vite-plugin';
 
 export default defineConfig(async () => ({
-    plugins: [solid()],
+    plugins: [solid(), suidPlugin()],
     clearScreen: false,
+    build: {
+        target: 'esnext',
+    },
     server: {
         port: 1420,
         strictPort: true,

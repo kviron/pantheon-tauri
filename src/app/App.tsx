@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@suid/material';
 import { createSignal } from 'solid-js';
 import { Checkbox } from '@/shared/ui/Checkbox';
 
@@ -18,7 +18,7 @@ function App() {
                 onClick={increment}
                 size={'small'}
             >
-                +
+                Кнопка с текстом
             </Button>
             <div>
                 <Checkbox>
