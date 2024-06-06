@@ -23,3 +23,14 @@ type OptionalRecord<K extends keyof any, T> = {
 type Nullable<T> = T | null;
 type NotRequired<T> = T | undefined;
 type UUID = string;
+
+type NumericRange<
+    START extends number,
+    END extends number,
+    ARR extends unknown[] = [],
+    ACC extends number = never,
+> = ARR['length'] extends END
+    ? ACC | START | END
+    : NumericRange<START, END, [...ARR, 1], ARR[START] extends undefined ? ACC : ACC | ARR['length']>;
+
+type ArrayElementType<T> = T extends (infer E)[] ? E : never;
