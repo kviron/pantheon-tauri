@@ -1,13 +1,17 @@
 /* @refresh reload */
+import 'reset-css';
 import { render } from 'solid-js/web';
 import App from './app/App.tsx';
 import { ThemeProvider } from '@/app/providers/ThemeProvider/ui/ThemeProvider.tsx';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 
 render(
     () => (
-        <ThemeProvider>
-            <App />
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ErrorBoundary>
     ),
     document.getElementById('root') as HTMLElement,
 );

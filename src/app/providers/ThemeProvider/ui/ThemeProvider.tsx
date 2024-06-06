@@ -1,9 +1,7 @@
-import ThemeProviderMui from '@suid/system/ThemeProvider';
 import { Component, createSignal, JSX } from 'solid-js';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage.ts';
 import { Theme } from '@tauri-apps/api/window';
 import { ThemeContext } from '@/shared/context/ThemeContext.ts';
-import { getTheme } from '@/shared/theme';
 
 type ThemeProviderProps = {
     initialTheme?: Theme;
@@ -30,9 +28,5 @@ export const ThemeProvider: Component<ThemeProviderProps> = props => {
         setTheme,
     };
 
-    return (
-        <ThemeContext.Provider value={defaultProps}>
-            <ThemeProviderMui theme={getTheme(theme())}>{props.children}</ThemeProviderMui>
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={defaultProps}>{props.children}</ThemeContext.Provider>;
 };
