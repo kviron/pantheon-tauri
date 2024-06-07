@@ -20,12 +20,20 @@ export const ThemeProvider: Component<ThemeProviderProps> = props => {
         setThemeInited(true);
     }
 
-    document.body.className = theme();
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme());
+    const handleChangeTheme = (theme: Theme) => {
+        document.body.className = theme === 'light' ? 'app_theme_light' : 'app_theme_dark';
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+        setTheme(theme);
+    };
+
+    const toggleTheme = () => {
+        handleChangeTheme(theme() === 'light' ? 'dark' : 'light');
+    };
 
     const defaultProps = {
         theme: theme(),
-        setTheme,
+        setTheme: handleChangeTheme,
+        toggleTheme,
     };
 
     return <ThemeContext.Provider value={defaultProps}>{props.children}</ThemeContext.Provider>;
