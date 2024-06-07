@@ -1,21 +1,35 @@
-import { Button } from '@/shared/ui/Button';
-import { useTheme } from '@/shared/hooks/useTheme.ts';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { A, Route } from '@solidjs/router';
+import { Component, JSX } from 'solid-js';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
+import { ThemeProvider } from '@/app/providers/ThemeProvider/ui/ThemeProvider.tsx';
+import { routeConfig } from '@/app/providers/RouterProvider/config/routeConfig.tsx';
 
-function App() {
-    const { toggleTheme } = useTheme();
+type AppProps = {
+    children: JSX.Element;
+};
+
+const App: Component<AppProps> = props => {
     return (
-        <div class='container'>
-            Главная страница{' '}
-            <Button
-                variant={'filled'}
-                onClick={() => {
-                    toggleTheme();
-                }}
-            >
-                Кнопка
-            </Button>
-        </div>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <MainLayout
+                    header={'header'}
+                    sidebar={
+                        <div>
+                            {Object.values(routeConfig).map(route => {
+                                if (route.name && route.path && typeof route.path === 'string') {
+                                    return <A href={route.path}>{route.name}</A>;
+                                }
+                            })}
+                        </div>
+                    }
+                >
+                    {props.children}
+                </MainLayout>
+            </ThemeProvider>
+        </ErrorBoundary>
     );
-}
+};
 
 export default App;

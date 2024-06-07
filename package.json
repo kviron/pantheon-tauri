@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@solid-primitives/scheduled": "^1.4.3",
-    "@solidjs/router": "^0.13.3",
+    "@solidjs/router": "^0.13.5",
     "@suid/vite-plugin": "^0.2.0",
     "@tauri-apps/api": "^1",
     "@typescript-eslint/parser": "^7.11.0",
