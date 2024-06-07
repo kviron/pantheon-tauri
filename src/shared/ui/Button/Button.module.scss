@@ -57,7 +57,7 @@
 }
 .filled {
     color: rgba(0, 0, 0, 0.87);
-    background-color: rgb(144, 202, 249);
+    background-color: var(--color-primary-300);
 
     &:hover {
         background-color: rgb(56, 142, 60);

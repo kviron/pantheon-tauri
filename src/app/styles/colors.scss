@@ -1,0 +1,28 @@
+:root {
+  --white: #fff;
+  --black: #000;
+
+  --color-primary:  #0088ff;
+
+  --color-primary-50: color-mix(in srgb, var(--color-primary), var(--black) 90%);
+  --color-primary-100: color-mix(in srgb, var(--color-primary), var(--black) 80%);
+  --color-primary-200: color-mix(in srgb, var(--color-primary), var(--black) 60%);
+  --color-primary-300: color-mix(in srgb, var(--color-primary), var(--black) 40%);
+  --color-primary-400: color-mix(in srgb, var(--color-primary), var(--black) 20%);
+  --color-primary-500: var(--color-primary);
+  --color-primary-600: color-mix(in srgb, var(--color-primary), var(--white) 20%);
+  --color-primary-700: color-mix(in srgb, var(--color-primary), var(--white) 40%);
+  --color-primary-800: color-mix(in srgb, var(--color-primary), var(--white) 60%);
+  --color-primary-900: color-mix(in srgb, var(--color-primary), var(--white) 80%);
+  --color-primary-1000: color-mix(in srgb, var(--color-primary), var(--white) 90%);
+
+  --color-primary-a10: color-mix(in srgb, var(--color-primary), transparent 90%);
+  --color-primary-a20: color-mix(in srgb, var(--color-primary), transparent 80%);
+  --color-primary-a30: color-mix(in srgb, var(--color-primary), transparent 70%);
+  --color-primary-a40: color-mix(in srgb, var(--color-primary), transparent 60%);
+  --color-primary-a50: color-mix(in srgb, var(--color-primary), transparent 50%);
+  --color-primary-a60: color-mix(in srgb, var(--color-primary), transparent 40%);
+  --color-primary-a70: color-mix(in srgb, var(--color-primary), transparent 30%);
+  --color-primary-a80: color-mix(in srgb, var(--color-primary), transparent 20%);
+  --color-primary-a90: color-mix(in srgb, var(--color-primary), transparent 10%);
+}

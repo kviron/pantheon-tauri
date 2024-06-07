@@ -1,0 +1,7 @@
+@import "colors";
+@import "themes/light";
+@import "themes/dark";
+
+body {
+  background-color: var(--theme-color-bg);
+}
