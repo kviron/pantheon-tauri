@@ -3,7 +3,7 @@ import { Button } from '@/shared/ui/Button';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage.ts';
 
 export const ThemeSwitcher = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme();
 
     const onToggleHandler = () => {
         toggleTheme(newTheme => {
@@ -18,25 +18,28 @@ export const ThemeSwitcher = () => {
                 onClick={onToggleHandler}
                 size={'small'}
                 variant={'text'}
-                color={'danger'}
+                color={'success'}
+                disabled
             >
-                Тема: {theme()}
+                Кнопка
             </Button>
             <Button
                 onClick={onToggleHandler}
                 size={'medium'}
                 variant={'filled'}
-                color={'danger'}
+                color={'success'}
+                disabled
             >
-                Тема: {theme()}
+                Кнопка
             </Button>
             <Button
                 onClick={onToggleHandler}
                 size={'large'}
                 variant={'outlined'}
-                color={'danger'}
+                color={'success'}
+                disabled
             >
-                Тема: {theme()}
+                Кнопка
             </Button>
         </div>
     );

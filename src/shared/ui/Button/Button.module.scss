@@ -1,3 +1,31 @@
+@mixin setColorVariant($prefix, $colorText) {
+        --btn-border-color: var(--color-#{$prefix});
+        --btn-disabled-color: var(--color-#{$prefix});
+        --btn-disabled-border-color: var(--color-#{$prefix});
+        --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
+
+        &.filled {
+            --btn-bg: var(--color-#{$prefix});
+            --btn-disabled-bg: var(--color-#{$prefix});
+            --btn-color: color-mix(in srgb, var($colorText), transparent 10%);
+            --btn-hover-color: var(#{$colorText});
+            --btn-disabled-color: var(#{$colorText});
+            --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
+        }
+
+        &.text {
+            --btn-color: var(--color-#{$prefix});
+            --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
+            --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
+        }
+
+        &.outlined {
+            --btn-color: var(--color-#{$prefix});
+            --btn-hover-color: var(#{$colorText});
+            --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
+        }
+}
+
 // Common styles
 .button {
     --btn-position: relative;
@@ -26,7 +54,7 @@
 
     --btn-font-size: 1rem;
     --btn-line-height: 1.75;
-    --btn-font-weight: 600;
+    --btn-font-weight: 500;
     --btn-color: #fff;
 
     position: var(--btn-position);
@@ -134,176 +162,29 @@
 }
 
 .error {
-    $prefix: 'error';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--black) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--white), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--black) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+    @include setColorVariant('error', '--white');
 }
 
 .warning {
-    $prefix: 'warning';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--black), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+    @include setColorVariant('warning', '--white');
 }
 
 .info {
-    $prefix: 'info';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--black), transparent 10%);
-        --btn-hover-color: var(--black);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--black) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--black);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+    @include setColorVariant('info', '--black');
 }
 
 .success {
-    $prefix: 'success';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--white), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+    @include setColorVariant('success', '--white');
 }
 
 .primary {
-    $prefix: 'primary';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--white), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+    @include setColorVariant('primary', '--white');
 }
 
 .danger {
-    $prefix: 'danger';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--white), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: var(--color-#{$prefix});
-    }
+   @include setColorVariant('danger', '--white');
 }
 
 .secondary {
-    $prefix: 'secondary';
-    --btn-border-color: var(--color-#{$prefix});
-    --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-
-    &.filled {
-        --btn-bg: var(--color-#{$prefix});
-        --btn-color: color-mix(in srgb, var(--white), transparent 10%);
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
-
-    &.text {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%)
-    }
-
-    &.outlined {
-        --btn-color: var(--color-#{$prefix});
-        --btn-hover-color: var(--white);
-        --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(--white) 15%);
-    }
+   @include setColorVariant('secondary', '--white');
 }
