@@ -1,4 +1,5 @@
 import { JSX } from 'solid-js';
+import { ThemeColors } from '@/shared/const/colors.ts';
 
 /**
  * Размеры кнопки
@@ -15,23 +16,29 @@ export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
      * Увеличивает кнопку на всю свободную ширину
      * @default false
      */
-    fullWidth?: boolean;
+    fullWidth: boolean;
 
     /**
      * Размер кнопки
      * @default medium
      */
-    size?: ButtonSize;
+    size: ButtonSize;
 
     /**
      * Вариант кнопки
      * @default text
      */
-    variant?: ButtonVariant;
+    variant: ButtonVariant;
 
     /**
      * Флаг, делающий кнопку квадратной
      * @default false
      */
-    square?: boolean;
+    square: boolean;
+
+    /**
+     * Установить цвет кнопки
+     * @default primary
+     */
+    color: ThemeColors;
 };

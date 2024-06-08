@@ -13,8 +13,31 @@ export const ThemeSwitcher = () => {
     };
 
     return (
-        <div>
-            <Button onClick={onToggleHandler}>Тема: {theme()}</Button>
+        <div style={{ display: 'flex', gap: '1rem', 'align-items': 'center' }}>
+            <Button
+                onClick={onToggleHandler}
+                size={'small'}
+                variant={'text'}
+                color={'danger'}
+            >
+                Тема: {theme()}
+            </Button>
+            <Button
+                onClick={onToggleHandler}
+                size={'medium'}
+                variant={'filled'}
+                color={'danger'}
+            >
+                Тема: {theme()}
+            </Button>
+            <Button
+                onClick={onToggleHandler}
+                size={'large'}
+                variant={'outlined'}
+                color={'danger'}
+            >
+                Тема: {theme()}
+            </Button>
         </div>
     );
 };

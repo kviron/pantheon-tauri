@@ -2,7 +2,13 @@
   --white: #fff;
   --black: #000;
 
+  --color-error: #dc3545;
+  --color-warning: #ffc107;
+  --color-success: #16af20;
+  --color-danger: #fe4f0a;
+  --color-info: #0dcaf0;
   --color-primary:  #0088ff;
+  --color-secondary:  #6c757d;
 
   --color-primary-50: color-mix(in srgb, var(--color-primary), var(--black) 90%);
   --color-primary-100: color-mix(in srgb, var(--color-primary), var(--black) 80%);

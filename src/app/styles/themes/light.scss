@@ -1,6 +1,8 @@
 .app_theme_light {
   --theme-color-bg: var(--color-primary-1000);
 
+  --theme-color-text: color-mix(in srgb, var(--color-primary), var(--black) 80%);
+
   --theme-surface-100: color-mix(in srgb, var(--color-primary), var(--white) 90%);
   --theme-surface-200: color-mix(in srgb, var(--color-primary), var(--white) 80%);
   --theme-surface-300: color-mix(in srgb, var(--color-primary), var(--white) 60%);
