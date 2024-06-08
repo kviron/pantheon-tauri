@@ -1,5 +1,5 @@
 import { MainLayout } from '@/shared/layouts/MainLayout';
-import { A, Route } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { Component, JSX } from 'solid-js';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { ThemeProvider } from '@/app/providers/ThemeProvider/ui/ThemeProvider.tsx';
