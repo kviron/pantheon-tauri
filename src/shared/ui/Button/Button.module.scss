@@ -7,7 +7,7 @@
         &.filled {
             --btn-bg: var(--color-#{$prefix});
             --btn-disabled-bg: var(--color-#{$prefix});
-            --btn-color: color-mix(in srgb, var($colorText), transparent 10%);
+            --btn-color: var(#{$colorText});
             --btn-hover-color: var(#{$colorText});
             --btn-disabled-color: var(#{$colorText});
             --btn-hover-bg: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
@@ -166,7 +166,7 @@
 }
 
 .warning {
-    @include setColorVariant('warning', '--white');
+    @include setColorVariant('warning', '--black');
 }
 
 .info {

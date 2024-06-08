@@ -18,8 +18,7 @@ export const ThemeSwitcher = () => {
                 onClick={onToggleHandler}
                 size={'small'}
                 variant={'text'}
-                color={'success'}
-                disabled
+                color={'warning'}
             >
                 Кнопка
             </Button>
@@ -27,8 +26,7 @@ export const ThemeSwitcher = () => {
                 onClick={onToggleHandler}
                 size={'medium'}
                 variant={'filled'}
-                color={'success'}
-                disabled
+                color={'warning'}
             >
                 Кнопка
             </Button>
@@ -36,8 +34,7 @@ export const ThemeSwitcher = () => {
                 onClick={onToggleHandler}
                 size={'large'}
                 variant={'outlined'}
-                color={'success'}
-                disabled
+                color={'warning'}
             >
                 Кнопка
             </Button>
