@@ -4,7 +4,12 @@
         --btn-disabled-border-color: var(--color-#{$prefix});
         --btn-hover-border-color: color-mix(in srgb, var(--color-#{$prefix}), var(#{$colorText}) 15%);
 
-        &.filled {
+    &:focus {
+        --btn-focus-outline-color: color-mix(in srgb, var(--color-#{$prefix}), transparent 80%);
+    }
+
+
+    &.filled {
             --btn-bg: var(--color-#{$prefix});
             --btn-disabled-bg: var(--color-#{$prefix});
             --btn-color: var(#{$colorText});
@@ -29,6 +34,7 @@
 // Common styles
 .button {
     --btn-position: relative;
+    --btn-display: inline-flex;
     --btn-border-radius: .5rem;
     --btn-bg: var(--color-primary-500);
     --btn-border-color: var(--color-primary-500);
@@ -38,7 +44,11 @@
     --btn-active-color: var(--btn-hover-color);
     --btn-active-bg: var(--color-primary-600);
     --btn-active-border-color: var(--color-primary-600);
+
     --btn-focus-box-shadow: 0 0 0 0.25rem;
+    --btn-focus-outline-color: transparent;
+    --btn-focus-outline-width: 3px;
+    --btn-focus-outline-style: solid;
 
     --btn-hover-color: var(--white);
     --btn-hover-bg: var(--color-primary-600);
@@ -58,7 +68,7 @@
     --btn-color: #fff;
 
     position: var(--btn-position);
-    display: inline-flex;
+    display: var(--btn-display);
     margin: 0;
     min-width: 64px;
 
@@ -76,7 +86,10 @@
     border-style: var(--btn-border-style);
     border-width: var(--btn-border-width);
 
-    outline: 0;
+    outline-style: var(--btn-focus-outline-style);
+    outline-width: var(--btn-focus-outline-width);
+    outline-color: var(--btn-focus-outline-color);
+
     text-decoration: none;
     line-height: var(--btn-line-height);
 

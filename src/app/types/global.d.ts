@@ -34,3 +34,19 @@ type NumericRange<
     : NumericRange<START, END, [...ARR, 1], ARR[START] extends undefined ? ACC : ACC | ARR['length']>;
 
 type ArrayElementType<T> = T extends (infer E)[] ? E : never;
+
+type NestedKeys<T, P extends string = ''> = T extends object
+    ? {
+          [K in keyof T]-?: `${P extends '' ? '' : `${P}.`}${K}${NestedKeys<T[K], `${P extends '' ? '' : `${P}.`}${K}`>}`;
+      }[keyof T]
+    : '';
+
+type DotPrefix<T extends string> = T extends '' ? '' : `.${T}`;
+
+type DotNestedKeys<T> = (
+    T extends object
+        ? { [K in Exclude<keyof T, symbol>]: `${K}${DotPrefix<DotNestedKeys<T[K]>>}` }[Exclude<keyof T, symbol>]
+        : ''
+) extends infer D
+    ? Extract<D, string>
+    : never;
