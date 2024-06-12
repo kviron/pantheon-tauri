@@ -65,7 +65,7 @@
     --btn-font-size: 1rem;
     --btn-line-height: 1.75;
     --btn-font-weight: 500;
-    --btn-color: #fff;
+    --btn-color: var(--white);
 
     position: var(--btn-position);
     display: var(--btn-display);

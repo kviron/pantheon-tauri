@@ -1,12 +1,9 @@
 @import "utils";
+@import "animations";
 @import "colors";
 @import "borders";
 @import "grid";
 @import "breakepoints";
 @import "themes/light";
 @import "themes/dark";
-
-body {
-  background-color: var(--theme-color-bg);
-  color: var(--theme-color-text);
-}
+@import "base";

@@ -1,0 +1,14 @@
+:root {
+  --durations-fastest: 50ms;
+  --durations-faster: .1s;
+  --durations-fast: .15s;
+  --durations-normal: .2s;
+  --durations-slow: .3s;
+  --durations-slower: .4s;
+  --durations-slowest: .5s;
+
+  --easings-pulse: cubic-bezier(.4, 0, .6, 1);
+  --easings-default: cubic-bezier(.2, 0, 0, 1);
+  --easings-emphasized-in: cubic-bezier(.05, .7, .1, 1);
+  --easings-emphasized-out: cubic-bezier(.3, 0, .8, .15);
+}

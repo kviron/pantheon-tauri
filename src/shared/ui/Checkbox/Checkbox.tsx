@@ -37,17 +37,11 @@ export const Checkbox: Component<Partial<CheckboxProps>> = props => {
                     [s.disabled]: finalProps.disabled,
                     [s.checked]: localState(),
                     // colors
-                    [s.warning]: finalProps.color === 'warning',
-                    [s.error]: finalProps.color === 'error',
-                    [s.info]: finalProps.color === 'info',
-                    [s.success]: finalProps.color === 'success',
-                    [s.primary]: finalProps.color === 'primary',
-                    [s.danger]: finalProps.color === 'danger',
-                    [s.secondary]: finalProps.color === 'secondary',
+                    [s[finalProps.color]]: !!finalProps.color,
                 }}
-                {...finalProps}
                 checked={localState()}
                 onChange={e => handleChange(e.currentTarget.checked)}
+                {...finalProps}
             />
             <div
                 classList={{

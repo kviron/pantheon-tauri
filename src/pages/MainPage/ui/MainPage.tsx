@@ -3,6 +3,7 @@ import { Button } from '@/shared/ui/Button';
 import { useI18n } from '@/shared/hooks/i18n.ts';
 import { A } from '@solidjs/router';
 import { Checkbox } from '@/shared/ui/Checkbox';
+import { Switch } from '@/shared/ui/Switch';
 
 const MainPage = () => {
     const [t, { locale }] = useI18n();
@@ -14,9 +15,7 @@ const MainPage = () => {
             <A href={'/'}>{t('menu.Main')} </A>
             <A href={'/settings'}>{t('menu.Main')} </A>
             <A href={'/profile'}>{t('menu.Profile')} </A>
-
             <ThemeSwitcher />
-
             <div style={{ display: 'grid', gap: '1rem', margin: '1rem' }}>
                 <Checkbox
                     label={'Пункт 1'}
@@ -42,6 +41,34 @@ const MainPage = () => {
                     label={'Пункт 6'}
                     color={'success'}
                 />
+            </div>
+            <div style={{ display: 'grid', gap: '1rem', margin: '1rem' }}>
+                <Switch
+                    color={'primary'}
+                    size={'small'}
+                >
+                    Пункт 1
+                </Switch>
+                <Switch
+                    color={'danger'}
+                    size={'medium'}
+                >
+                    Пункт 2
+                </Switch>
+                <Switch
+                    color={'error'}
+                    size={'large'}
+                >
+                    Пункт 3
+                </Switch>
+                <Switch
+                    color={'warning'}
+                    disabled
+                >
+                    Пункт 4
+                </Switch>
+                <Switch color={'info'}>Пункт 5</Switch>
+                <Switch color={'success'}>Пункт 5</Switch>
             </div>
         </div>
     );

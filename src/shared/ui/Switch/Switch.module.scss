@@ -1,0 +1,104 @@
+.switch {
+  align-items: center;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+
+  // Control
+  @include part(control) {
+    flex-shrink: 0;
+    align-items: center;
+    display: inline-flex;
+    border-radius: var(--radii-full);
+    --transition-duration: var(--durations-normal);
+    transition-duration: var(--durations-normal);
+    --transition-prop: background;
+    --transition-easing: var(--easings-default);
+    transition-property: background;
+    transition-timing-function: var(--easings-default);
+  }
+
+  // Thumb
+  @include part(thumb) {
+    border-radius: var(--radii-full);
+    --transition-duration: var(--durations-normal);
+    transition-duration: var(--durations-normal);
+    --transition-prop: transform, background;
+    --transition-easing: var(--easings-default);
+    transition-property: transform, background;
+    transition-timing-function: var(--easings-default);
+  }
+
+  @include state(checked) {
+    @include part(thumb) {
+      transform: translate(100%);
+    }
+  }
+
+  @include is-status(disabled) {
+    opacity: .65;
+  }
+
+  // Маленький размер
+  &.small {
+    gap: .75rem;
+
+    @include part(control) {
+      width: 1.50rem;
+      padding: .125rem;
+    }
+
+    @include part(thumb) {
+      width: .75rem;
+      height: .75rem;
+    }
+  }
+
+  &.medium {
+    gap: 1rem;
+
+    @include part(control) {
+      width: 2rem;
+      padding: .125rem;
+    }
+
+    @include part(thumb) {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &.large {
+    gap: 1.25rem;
+
+    @include part(control) {
+      width: 2.50rem;
+      padding: .125rem;
+    }
+
+    @include part(thumb) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  @each $color in $colors-pallet {
+    &.#{$color} {
+      @include state(unchecked, true) {
+        @include part(control) {
+          background-color: color-mix(in srgb, var(--color-secondary), white 50%)!important;
+        }
+      }
+
+      @include state(checked, true) {
+        @include part(control) {
+          background-color: var(--color-#{$color});
+        }
+      }
+
+      @include part(thumb) {
+        background-color: var(--white);
+      }
+    }
+  }
+}
