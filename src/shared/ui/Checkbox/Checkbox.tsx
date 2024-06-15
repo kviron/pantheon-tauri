@@ -1,5 +1,5 @@
 import s from './Checkbox.module.scss';
-import { Component, createSignal, mergeProps, Show, splitProps } from 'solid-js';
+import { createSignal, mergeProps, Show, splitProps } from 'solid-js';
 import { CheckboxProps } from './Checkbox.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
 import CheckIcon from '@/assets/icons/check.svg';
@@ -12,7 +12,7 @@ const defaultProps: CheckboxProps = {
     color: 'primary',
 };
 
-export const Checkbox: Component<Partial<CheckboxProps>> = props => {
+const Checkbox = (props: Partial<CheckboxProps>) => {
     const finalProps: CheckboxProps = mergeProps(defaultProps, props);
     const [handlers] = splitProps(finalProps, ['onChange']);
     const id = finalProps.id ?? uuidv4();
@@ -67,3 +67,7 @@ export const Checkbox: Component<Partial<CheckboxProps>> = props => {
         </div>
     );
 };
+
+Checkbox.Label = () => {};
+
+export { Checkbox };

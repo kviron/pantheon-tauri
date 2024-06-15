@@ -13,7 +13,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ark-ui/solid": "^3.2.2",
     "@solid-primitives/scheduled": "^1.4.3",
     "@solidjs/router": "^0.13.5",
     "@suid/vite-plugin": "^0.2.0",

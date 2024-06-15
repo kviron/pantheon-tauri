@@ -46,29 +46,31 @@ const MainPage = () => {
                 <Switch
                     color={'primary'}
                     size={'small'}
-                >
-                    Пункт 1
-                </Switch>
+                    label={'Пункт 1'}
+                />
                 <Switch
                     color={'danger'}
                     size={'medium'}
-                >
-                    Пункт 2
-                </Switch>
+                    label={'Пункт 2'}
+                />
                 <Switch
                     color={'error'}
                     size={'large'}
-                >
-                    Пункт 3
-                </Switch>
+                    label={'Пункт 3'}
+                />
                 <Switch
                     color={'warning'}
+                    label={'Пункт 4'}
                     disabled
-                >
-                    Пункт 4
-                </Switch>
-                <Switch color={'info'}>Пункт 5</Switch>
-                <Switch color={'success'}>Пункт 5</Switch>
+                />
+                <Switch
+                    color={'info'}
+                    label={'Пункт 5'}
+                />
+                <Switch
+                    color={'success'}
+                    label={'Пункт 6'}
+                />
             </div>
         </div>
     );

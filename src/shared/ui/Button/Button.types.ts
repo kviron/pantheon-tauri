@@ -1,5 +1,5 @@
 import { ThemeColors } from '@/shared/const/colors.ts';
-import { type HTMLArkProps } from '@ark-ui/solid';
+import { JSX } from 'solid-js';
 
 /**
  * Размеры кнопки
@@ -11,7 +11,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  */
 export type ButtonVariant = 'text' | 'filled' | 'outlined';
 
-export type ButtonProps = HTMLArkProps<'button'> & {
+export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Увеличивает кнопку на всю свободную ширину
      * @default false

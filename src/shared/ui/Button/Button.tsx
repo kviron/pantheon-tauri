@@ -2,7 +2,6 @@ import s from './Button.module.scss';
 import { Component, mergeProps, splitProps } from 'solid-js';
 import { ButtonProps } from './Button.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
-import { ark } from '@ark-ui/solid';
 
 // Устанавливаем пропсы по умолчанию
 const defaultProps: ButtonProps = {
@@ -24,7 +23,7 @@ export const Button: Component<Partial<ButtonProps>> = props => {
     );
 
     return (
-        <ark.button
+        <button
             {...buttonProps}
             id={serviceProps.id ?? uuidv4()}
             classList={{
