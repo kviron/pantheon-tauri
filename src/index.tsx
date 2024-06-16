@@ -7,6 +7,8 @@ import { createRoot } from 'react-dom/client';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import App from '@/app/App.tsx';
+import { StrictMode } from 'react';
+import { StoreProvider } from '@/app/providers/StoreProvider';
 
 const container = document.getElementById('root');
 
@@ -17,11 +19,15 @@ if (!container) {
 const root = createRoot(container);
 
 root.render(
-    <HashRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
-    </HashRouter>,
+    <StrictMode>
+        <HashRouter>
+            <StoreProvider>
+                <ErrorBoundary>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </ErrorBoundary>
+            </StoreProvider>
+        </HashRouter>
+    </StrictMode>,
 );
