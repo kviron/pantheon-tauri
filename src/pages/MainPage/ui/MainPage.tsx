@@ -1,20 +1,19 @@
 import { ThemeSwitcher } from '@/features/ThemeSwitcher/ui/ThemeSwitcher.tsx';
-import { Button } from '@/shared/ui/Button';
-import { useI18n } from '@/shared/hooks/i18n.ts';
-import { A } from '@solidjs/router';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import { Switch } from '@/shared/ui/Switch';
+import { useTranslation } from 'react-i18next';
+import { AppLink } from '@/shared/ui/AppLink';
+import { LangSwitcher } from '@/features/LangSwitcher';
 
 const MainPage = () => {
-    const [t, { locale }] = useI18n();
+    const { t } = useTranslation();
 
     return (
         <div>
-            <Button onClick={() => locale('ru')}>ru</Button>
-            <Button onClick={() => locale('en')}>en</Button>
-            <A href={'/'}>{t('menu.Main')} </A>
-            <A href={'/settings'}>{t('menu.Main')} </A>
-            <A href={'/profile'}>{t('menu.Profile')} </A>
+            <LangSwitcher short />
+            <AppLink href={'/'}>{t('Главная')} </AppLink>
+            <AppLink href={'/settings'}>{t('Настройки')} </AppLink>
+            <AppLink href={'/profile'}>{t('Профиль')} </AppLink>
             <ThemeSwitcher />
             <div style={{ display: 'grid', gap: '1rem', margin: '1rem' }}>
                 <Checkbox

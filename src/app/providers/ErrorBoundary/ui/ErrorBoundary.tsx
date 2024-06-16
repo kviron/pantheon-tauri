@@ -1,12 +1,44 @@
-import { JSX } from 'solid-js';
-import { ErrorBoundary as ErrorBoundarySolid } from 'solid-js';
+import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 
-type ErrorBoundaryProps = {
-    children: JSX.Element;
-};
+interface ErrorBoundaryProps {
+    children: ReactNode;
+}
 
-export const ErrorBoundary = (props: ErrorBoundaryProps) => {
-    return (
-        <ErrorBoundarySolid fallback={<div>Something went terribly wrong</div>}>{props.children}</ErrorBoundarySolid>
-    );
-};
+interface ErrorBoundaryState {
+    hasError: boolean;
+}
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+    constructor(props: ErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(_: Error) {
+        // Update state so the next render will show the fallback UI.
+        return { hasError: true };
+    }
+
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        // You can also log the error to an error reporting service
+        console.log(error, errorInfo);
+    }
+
+    render() {
+        const { hasError } = this.state;
+        const { children } = this.props;
+
+        if (hasError) {
+            // You can render any custom fallback UI
+            return (
+                <Suspense fallback=''>
+                    <div>Ошибка</div>
+                </Suspense>
+            );
+        }
+
+        return children;
+    }
+}
+
+export default ErrorBoundary;

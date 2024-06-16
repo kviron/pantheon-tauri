@@ -1,8 +1,8 @@
-import { Component, JSX } from 'solid-js';
-import { createI18nContext } from '@/shared/config/i18n';
+import { createI18nContext } from '@/shared/config/i18n/i18n.tsx';
 import { I18nContext } from '@/shared/context/i18n';
+import { FC } from 'react';
 
-export const I18nProvider: Component<{
+export const I18nProvider: FC<{
     dict?: Record<string, Record<string, any>>;
     locale?: string;
     children?: JSX.Element;

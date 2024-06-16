@@ -1,40 +1,36 @@
-import { Component, JSX, mergeProps, Show, splitProps } from 'solid-js';
 import s from './Switch.module.scss';
 import { ThemeBaseComponent } from '@/shared/types/theme.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
+import { FC, InputHTMLAttributes, ReactNode } from 'react';
+import { Show } from '@/shared/ui/Show';
+import cl from 'classnames';
 
-type SwitchProps = ThemeBaseComponent &
-    JSX.InputHTMLAttributes<HTMLInputElement> & {
-        label?: JSX.Element;
-        onChange?: (checked: boolean) => void;
-    };
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'size' | 'color'>;
 
-const defaultProps: SwitchProps = {
-    color: 'primary',
-    size: 'medium',
-};
+interface SwitchProps extends ThemeBaseComponent, HTMLInputProps {
+    label?: ReactNode;
+    onChange?: (checked: boolean) => void;
+}
 
-const Switch: Component<Partial<SwitchProps>> = props => {
-    const finalProps: SwitchProps = mergeProps(defaultProps, props);
-    const [variant, content, switchProps] = splitProps(finalProps, ['size', 'color'], ['label']);
-    const id = finalProps.id ?? uuidv4();
+const Switch: FC<SwitchProps> = props => {
+    const { id = uuidv4(), label, size = 'medium', color = 'primary', onChange, ...inputProps } = props;
 
     const handleChange = (value: boolean) => {
-        finalProps.onChange?.(value);
+        onChange?.(value);
     };
 
     return (
-        <div classList={{ [s.switch]: true, [s[variant.size]]: true, [s[variant.color]]: true }}>
-            <span class={s.control}>
-                <span class={s.thumb} />
+        <div className={cl({ [s.switch]: true, [s[size]]: true, [s[color]]: true })}>
+            <span className={s.control}>
+                <span className={s.thumb} />
             </span>
-            <Show when={content.label}>
-                <label for={id}>{content.label}</label>
+            <Show when={label}>
+                <label htmlFor={id}>{label}</label>
             </Show>
             <input
-                {...switchProps}
+                {...inputProps}
                 id={id}
-                class={s.input}
+                className={s.input}
                 onChange={e => handleChange(e.currentTarget.checked)}
             />
         </div>

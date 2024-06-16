@@ -1,7 +1,7 @@
-import { Component, createEffect, createSignal, JSX } from 'solid-js';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage.ts';
 import { Theme } from '@tauri-apps/api/window';
 import { ThemeContext, ThemeContextProps } from '@/shared/context/ThemeContext.ts';
+import { FC, useEffect, useState } from 'react';
 
 type ThemeProviderProps = {
     initialTheme?: Theme;
@@ -10,9 +10,9 @@ type ThemeProviderProps = {
 
 const fallbackTheme = window.localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
-export const ThemeProvider: Component<ThemeProviderProps> = props => {
-    const [isThemeInited, setThemeInited] = createSignal<boolean>(false);
-    const [theme, setTheme] = createSignal<Theme>(props.initialTheme || fallbackTheme || 'light');
+export const ThemeProvider: FC<ThemeProviderProps> = props => {
+    const [isThemeInited, setThemeInited] = useState<boolean>(false);
+    const [theme, setTheme] = useState<Theme>(props.initialTheme || fallbackTheme || 'light');
 
     const defaultProps: ThemeContextProps = {
         theme,
@@ -24,10 +24,10 @@ export const ThemeProvider: Component<ThemeProviderProps> = props => {
         setTheme(props.initialTheme);
     }
 
-    createEffect(() => {
-        document.body.className = theme() === 'light' ? 'app_theme_light' : 'app_theme_dark';
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme());
-    });
+    useEffect(() => {
+        document.body.className = theme === 'light' ? 'app_theme_light' : 'app_theme_dark';
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+    }, [theme]);
 
     return <ThemeContext.Provider value={defaultProps}>{props.children}</ThemeContext.Provider>;
 };

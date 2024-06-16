@@ -9,7 +9,7 @@ export const ThemeSwitcher = () => {
     };
 
     return (
-        <div style={{ display: 'flex', gap: '1rem', 'align-items': 'center' }}>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <Button
                 onClick={onToggleHandler}
                 size={'small'}

@@ -16,7 +16,7 @@ export interface ThemeColorProps {
      * Установить цвет кнопки
      * @default primary
      */
-    color: ThemeColors;
+    color?: ThemeColors;
 }
 
 export interface ThemeSizeProps {
@@ -24,7 +24,7 @@ export interface ThemeSizeProps {
      * Установить цвет кнопки
      * @default primary
      */
-    size: ThemeSizes;
+    size?: ThemeSizes;
 }
 
 export interface ThemeBaseComponent extends ThemeSizeProps, ThemeColorProps {}

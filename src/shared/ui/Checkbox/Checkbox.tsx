@@ -1,9 +1,8 @@
 import s from './Checkbox.module.scss';
 import { CheckboxProps } from './Checkbox.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
-import CheckIcon from '@/assets/icons/check.svg';
 import cl from 'classnames';
-import { ChangeEvent, FC, useRef, useState } from 'react';
+import { FC, useRef } from 'react';
 import { Show } from '@/shared/ui/Show';
 
 const Checkbox: FC<CheckboxProps> = props => {
@@ -15,11 +14,9 @@ const Checkbox: FC<CheckboxProps> = props => {
         checked,
         color = 'primary',
         type = 'checkbox',
-        onChange,
         ...other
     } = props;
 
-    const [localChecked, setLocalChecked] = useState(false);
     const ref = useRef<HTMLInputElement>(null);
 
     const modsClasses = cl({
@@ -31,11 +28,6 @@ const Checkbox: FC<CheckboxProps> = props => {
         [s.disabled]: disabled,
         [s.checked]: checked,
     });
-
-    const handleChecked = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
-        setLocalChecked(e.currentTarget.checked);
-    };
 
     return (
         <div
@@ -52,7 +44,6 @@ const Checkbox: FC<CheckboxProps> = props => {
                 className={cl({ [s.input]: true })}
                 checked={checked}
                 disabled={disabled}
-                onChange={handleChecked}
                 {...other}
             />
             <div
@@ -62,7 +53,7 @@ const Checkbox: FC<CheckboxProps> = props => {
                     [s.disabled]: disabled,
                 })}
             >
-                <CheckIcon />
+                <Show when={checked}>V</Show>
             </div>
             <Show when={label}>
                 <label
@@ -78,7 +69,5 @@ const Checkbox: FC<CheckboxProps> = props => {
         </div>
     );
 };
-
-Checkbox.Label = () => {};
 
 export { Checkbox };

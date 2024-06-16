@@ -1,24 +1,22 @@
 import { routeConfig } from '../config/routeConfig';
-import { Route, Router } from '@solidjs/router';
-import type { Component } from 'solid-js';
-//@ts-ignore
-import { RouterProps } from '@solidjs/router/dist/routers/Router';
+import { Route, Routes } from 'react-router-dom';
+import { Suspense, useCallback } from 'react';
+import { AppRoutesProps } from '@/shared/types/router.ts';
 
-type AppRouterProps = {
-    root: typeof RouterProps.root;
-};
+const AppRouter = () => {
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        const element = <Suspense fallback={<div>...загрузка</div>}>{route.element}</Suspense>;
 
-const AppRouter: Component<AppRouterProps> = props => {
-    return (
-        <Router root={props.root}>
-            {Object.values(routeConfig).map(route => (
-                <Route
-                    path={route.path}
-                    component={route.component}
-                />
-            ))}
-        </Router>
-    );
+        return (
+            <Route
+                key={route.path}
+                path={route.path}
+                element={element}
+            />
+        );
+    }, []);
+
+    return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 };
 
 export default AppRouter;

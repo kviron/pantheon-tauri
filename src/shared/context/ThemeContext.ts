@@ -1,9 +1,9 @@
-import { createContext, JSX } from 'solid-js';
 import { Theme } from '@tauri-apps/api/window';
+import { createContext } from 'react';
 
 export interface ThemeContextProps {
-    theme: JSX.Accessor<Theme>;
+    theme: Theme;
     setTheme: (theme: Theme) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
+export const ThemeContext = createContext({} as ThemeContextProps);

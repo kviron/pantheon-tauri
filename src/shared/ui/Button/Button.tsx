@@ -1,10 +1,10 @@
 import s from './Button.module.scss';
 import { ButtonProps } from './Button.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
-import { FC, ForwardedRef } from 'react';
+import { FC, ForwardedRef, forwardRef } from 'react';
 import cl from 'classnames';
 
-export const Button: FC<ButtonProps> = (props, ref: ForwardedRef<HTMLButtonElement>) => {
+export const Button: FC<ButtonProps> = forwardRef((props, ref: ForwardedRef<HTMLButtonElement>) => {
     const {
         id = uuidv4(),
         size = 'medium',
@@ -37,4 +37,4 @@ export const Button: FC<ButtonProps> = (props, ref: ForwardedRef<HTMLButtonEleme
             {...other}
         />
     );
-};
+});

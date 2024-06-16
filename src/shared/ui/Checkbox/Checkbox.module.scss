@@ -6,6 +6,7 @@
   &:checked {
     & + .checkbox {
       --checkbox-bg: var(--color-#{$prefix});
+      color: $color-check;
 
       svg {
         path {

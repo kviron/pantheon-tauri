@@ -7,10 +7,6 @@ export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
      */
     label?: ReactNode;
     /**
-     * Функция возвращает значение
-     */
-    onChange?: (value: string) => void;
-    /**
      * Установить цвет кнопки
      * @default primary
      */

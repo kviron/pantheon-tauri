@@ -1,3 +1,3 @@
-import { lazy } from 'solid-js';
+import { lazy } from 'react';
 
 export const SettingsPageAsync = lazy(() => import('./SettingsPage'));

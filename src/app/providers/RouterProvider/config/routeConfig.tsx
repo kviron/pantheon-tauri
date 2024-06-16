@@ -19,36 +19,36 @@ import { AppsPage } from '@/pages/AppsPage';
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
-        component: MainPage,
+        element: <MainPage />,
         name: 'Главная',
     },
     [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),
-        component: SettingsPage,
+        element: <SettingsPage />,
         name: 'Настройки',
     },
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
-        component: ProfilePage,
+        element: <ProfilePage />,
         name: 'Профиль',
         authOnly: true,
     },
     [AppRoutes.APPS]: {
         path: getRouteApps(),
-        component: AppsPage,
+        element: <AppsPage />,
         name: 'Игры',
     },
     [AppRoutes.APP_DETAILS]: {
         path: getRouteAppDetails(':id'),
-        component: AppDetailsPage,
+        element: <AppDetailsPage />,
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
-        component: ForbiddenPage,
+        element: <ForbiddenPage />,
     },
     // last
     [AppRoutes.NOT_FOUND]: {
         path: '*',
-        component: NotFoundPage,
+        element: <NotFoundPage />,
     },
 };
