@@ -1,45 +1,40 @@
 import s from './Button.module.scss';
-import { Component, mergeProps, splitProps } from 'solid-js';
 import { ButtonProps } from './Button.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
+import { FC, ForwardedRef } from 'react';
+import cl from 'classnames';
 
-// Устанавливаем пропсы по умолчанию
-const defaultProps: ButtonProps = {
-    size: 'medium',
-    fullWidth: false,
-    variant: 'filled',
-    square: false,
-    tabindex: 0,
-    type: 'button',
-    color: 'primary',
-};
-
-export const Button: Component<Partial<ButtonProps>> = props => {
-    const finalProps: ButtonProps = mergeProps(defaultProps, props);
-    const [variantProps, serviceProps, buttonProps] = splitProps(
-        finalProps,
-        ['class', 'size', 'color', 'variant', 'square', 'fullWidth'],
-        ['classList', 'id'],
-    );
+export const Button: FC<ButtonProps> = (props, ref: ForwardedRef<HTMLButtonElement>) => {
+    const {
+        id = uuidv4(),
+        size = 'medium',
+        color = 'primary',
+        fullWidth = false,
+        square = false,
+        disabled = false,
+        variant = 'filled',
+        type = 'button',
+        tabIndex = 0,
+        className,
+        ...other
+    } = props;
 
     return (
         <button
-            {...buttonProps}
-            id={serviceProps.id ?? uuidv4()}
-            classList={{
+            id={id}
+            ref={ref}
+            disabled={disabled}
+            className={cl({
                 [s.button]: true,
-                // sizes
-                [s[variantProps.size]]: !!variantProps.size,
-                // colors
-                [s[variantProps.color]]: !!variantProps.color,
-                // variants
-                [s[variantProps.variant]]: !!variantProps.variant,
-                // statuses
-                [s.square]: variantProps.square,
-                [s.fullWidth]: variantProps.fullWidth,
-                [s.disabled]: finalProps.disabled,
-                ...serviceProps.classList,
-            }}
+                [s[size]]: true,
+                [s[color]]: true,
+                [s[variant]]: true,
+                [s.square]: square,
+                [s.fullWidth]: fullWidth,
+                [s.disabled]: disabled,
+                className,
+            })}
+            {...other}
         />
     );
 };

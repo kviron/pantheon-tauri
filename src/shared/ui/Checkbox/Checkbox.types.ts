@@ -1,9 +1,15 @@
-import { JSX } from 'solid-js';
 import { ThemeColors } from '@/shared/const/colors.ts';
+import { InputHTMLAttributes, ReactNode } from 'react';
 
-export type CheckboxProps = JSX.InputHTMLAttributes<HTMLInputElement> & {
-    label?: JSX.Element;
-    onChange?: (value: boolean) => void;
+export type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
+    /**
+     * Текст label
+     */
+    label?: ReactNode;
+    /**
+     * Функция возвращает значение
+     */
+    onChange?: (value: string) => void;
     /**
      * Установить цвет кнопки
      * @default primary

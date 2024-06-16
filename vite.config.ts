@@ -1,24 +1,14 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import solid from 'vite-plugin-solid';
-import suidPlugin from '@suid/vite-plugin';
-import solidSvg from 'vite-plugin-solid-svg';
+import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig(async () => ({
     plugins: [
-        solid(),
-        suidPlugin(),
-        solidSvg({
-            defaultAsComponent: true,
-            svgo: {
-                svgoConfig: {
-                    plugins: [
-                        'removeUselessStrokeAndFill',
-                        'cleanupEnableBackground',
-                        'removeEmptyAttrs',
-                        'removeMetadata',
-                    ],
-                },
+        react(),
+        svgr({
+            svgrOptions: {
+                exportType: 'default',
             },
         }),
     ],
@@ -41,9 +31,8 @@ export default defineConfig(async () => ({
     test: {
         globals: true,
         environment: 'jsdom',
-        transformMode: {
-            web: [/\.jsx?$/],
-        },
+        setupFiles: ['./tests/setup.ts'],
+        testMatch: ['./tests/**/*.test.tsx'],
     },
     define: {
         __IS_DEV__: JSON.stringify(true),

@@ -1,5 +1,5 @@
 import { ThemeColors } from '@/shared/const/colors.ts';
-import { JSX } from 'solid-js';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 /**
  * Размеры кнопки
@@ -11,34 +11,39 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  */
 export type ButtonVariant = 'text' | 'filled' | 'outlined';
 
-export type ButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /**
      * Увеличивает кнопку на всю свободную ширину
      * @default false
      */
-    fullWidth: boolean;
+    fullWidth?: boolean;
 
     /**
      * Размер кнопки
      * @default medium
      */
-    size: ButtonSize;
+    size?: ButtonSize;
 
     /**
      * Вариант кнопки
      * @default text
      */
-    variant: ButtonVariant;
+    variant?: ButtonVariant;
 
     /**
      * Флаг, делающий кнопку квадратной
      * @default false
      */
-    square: boolean;
+    square?: boolean;
 
     /**
      * Установить цвет кнопки
      * @default primary
      */
-    color: ThemeColors;
+    color?: ThemeColors;
+
+    /**
+     * Содержимое кнопки
+     */
+    children?: ReactNode;
 };

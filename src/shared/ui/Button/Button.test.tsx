@@ -1,4 +1,4 @@
-import { render } from '@solidjs/testing-library';
+import { render } from '@testing-library/react';
 import { test, expect, describe } from 'vitest';
 import { Button } from './Button';
 

@@ -1,67 +1,78 @@
 import s from './Checkbox.module.scss';
-import { createSignal, mergeProps, Show, splitProps } from 'solid-js';
 import { CheckboxProps } from './Checkbox.types.ts';
 import { uuidv4 } from '@/shared/lib/uuid.ts';
 import CheckIcon from '@/assets/icons/check.svg';
+import cl from 'classnames';
+import { ChangeEvent, FC, useRef, useState } from 'react';
+import { Show } from '@/shared/ui/Show';
 
-// Устанавливаем пропсы по умолчанию
-const defaultProps: CheckboxProps = {
-    size: 'medium',
-    tabindex: 0,
-    type: 'checkbox',
-    color: 'primary',
-};
+const Checkbox: FC<CheckboxProps> = props => {
+    const {
+        id = uuidv4(),
+        size = 'medium',
+        disabled = false,
+        label,
+        checked,
+        color = 'primary',
+        type = 'checkbox',
+        onChange,
+        ...other
+    } = props;
 
-const Checkbox = (props: Partial<CheckboxProps>) => {
-    const finalProps: CheckboxProps = mergeProps(defaultProps, props);
-    const [handlers] = splitProps(finalProps, ['onChange']);
-    const id = finalProps.id ?? uuidv4();
-    const [localState, setLocalState] = createSignal<boolean>(finalProps.checked ?? false);
+    const [localChecked, setLocalChecked] = useState(false);
+    const ref = useRef<HTMLInputElement>(null);
 
-    const handleChange = (value: boolean) => {
-        setLocalState(value);
-        handlers.onChange?.(value);
+    const modsClasses = cl({
+        [s[size]]: true,
+        [s[color]]: true,
+    });
+
+    const statusClasses = cl({
+        [s.disabled]: disabled,
+        [s.checked]: checked,
+    });
+
+    const handleChecked = (e: ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e.target.value);
+        setLocalChecked(e.currentTarget.checked);
     };
 
     return (
         <div
-            classList={{
+            className={cl({
                 [s.wrapper]: true,
-                [s.disabled]: finalProps.disabled,
-            }}
+                statusClasses,
+                modsClasses,
+            })}
         >
             <input
                 id={id}
-                classList={{
-                    [s.input]: true,
-                    [s.disabled]: finalProps.disabled,
-                    [s.checked]: localState(),
-                    // colors
-                    [s[finalProps.color]]: !!finalProps.color,
-                }}
-                checked={localState()}
-                onChange={e => handleChange(e.currentTarget.checked)}
-                {...finalProps}
+                ref={ref}
+                type={type}
+                className={cl({ [s.input]: true })}
+                checked={checked}
+                disabled={disabled}
+                onChange={handleChecked}
+                {...other}
             />
             <div
-                classList={{
+                className={cl({
                     [s.checkbox]: true,
-                    [s.checked]: localState(),
-                    [s.disabled]: finalProps.disabled,
-                }}
+                    [s.checked]: checked,
+                    [s.disabled]: disabled,
+                })}
             >
                 <CheckIcon />
             </div>
-            <Show when={finalProps.label}>
+            <Show when={label}>
                 <label
-                    for={id}
-                    classList={{
+                    htmlFor={id}
+                    className={cl({
                         [s.label]: true,
-                        [s.disabled]: finalProps.disabled,
-                        [s.checked]: localState(),
-                    }}
+                        statusClasses,
+                    })}
                 >
-                    {finalProps.label}
+                    {label}
                 </label>
             </Show>
         </div>

@@ -18,8 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,
@@ -35,7 +34,12 @@
       ]
     }
   },
-  "types": ["vite-plugin-solid-svg/types-component-solid", "vite/client", "@testing-library/jest-dom"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "types": ["vite/client", "@testing-library/jest-dom"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": [
