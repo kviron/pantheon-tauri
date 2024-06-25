@@ -1,7 +1,6 @@
 import { UserRole } from './model/const.ts';
 import { UserSchema } from './model/types.ts';
+import { useUserStore } from './model/store.ts';
 
-export { UserRole };
+export { UserRole, useUserStore };
 export type { UserSchema };
-
-export { userReducer, userActions } from './model/slice';

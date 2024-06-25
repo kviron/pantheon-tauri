@@ -15,7 +15,8 @@ export interface User {
 }
 
 export interface UserSchema {
-    authData?: User;
+    authData: Nullable<User>;
+    setAuthData: (data: User) => void;
 
     _inited: boolean;
 }

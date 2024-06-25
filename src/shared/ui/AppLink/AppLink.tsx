@@ -17,7 +17,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     return (
         <Link
             to={href}
-            className={cl(s.AppLink, { [s[color]]: true }, [className])}
+            className={cl(s.AppLink, { [s[color]]: true }, className)}
             {...otherProps}
         >
             {children}

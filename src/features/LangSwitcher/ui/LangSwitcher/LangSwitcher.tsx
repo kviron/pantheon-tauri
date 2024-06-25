@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Button } from '@/shared/ui/Button';
+import { Button } from 'antd';
 
 interface LangSwitcherProps {
     className?: string;
@@ -16,7 +16,7 @@ export const LangSwitcher = memo(({ short }: LangSwitcherProps) => {
 
     return (
         <Button
-            color={'primary'}
+            type={'primary'}
             onClick={toggle}
         >
             {t(short ? 'Короткий язык' : 'Язык')}

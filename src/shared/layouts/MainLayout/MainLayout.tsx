@@ -1,19 +1,15 @@
-import { JSX } from 'solid-js';
+import { Outlet } from 'react-router-dom';
+import { Navbar } from '@/widgets/Navbar';
+import s from './MainLayout.module.scss';
+import cl from 'classnames';
 
-interface MainLayoutProps {
-    header: JSX.Element;
-    children?: JSX.Element;
-    sidebar: JSX.Element;
-    toolbar?: JSX.Element;
-}
-
-export const MainLayout = (props: MainLayoutProps) => {
+export const MainLayout = () => {
     return (
-        <div>
-            <div>{props.sidebar}</div>
-            <div>{props.header}</div>
-            <div>{props.children}</div>
-            <div>{props.toolbar}</div>
+        <div className={cl(s.wrapper, 'App')}>
+            <Navbar />
+            <div className={s.content}>
+                <Outlet />
+            </div>
         </div>
     );
 };

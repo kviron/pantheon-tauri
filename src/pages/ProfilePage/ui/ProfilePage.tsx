@@ -1,4 +1,4 @@
-import { useParams } from '@solidjs/router';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
     const { id } = useParams<{ id: string }>();

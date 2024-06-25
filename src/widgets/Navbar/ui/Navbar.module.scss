@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  border-bottom: var(--theme-navbar-border-bottom);
+}
+
+.arrows {
+  flex-shrink: 0;
+}
+
+.menu {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.link {
+  font-weight: 500;
+}
+
+.tools {
+  flex-shrink: 0;
+}
+
+.antdMenu {
+  border-bottom: 0!important;
+}

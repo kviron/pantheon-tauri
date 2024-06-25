@@ -8,47 +8,63 @@ import {
     getRouteMain,
     getRouteProfile,
     getRouteSettings,
-    getRouteApps,
-    getRouteAppDetails,
+    getRouteGames,
+    getRouteGameDetails,
+    getRouteLibrary,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
-import { AppDetailsPage } from '@/pages/AppDetailsPage';
-import { AppsPage } from '@/pages/AppsPage';
+import { GamesPage } from '@/pages/GamesPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
         element: <MainPage />,
-        name: 'Главная',
+        nameKey: AppRoutes.MAIN,
+        isMainMenu: false,
+    },
+    [AppRoutes.GAMES]: {
+        path: getRouteGames(),
+        nameKey: AppRoutes.GAMES,
+        element: <GamesPage />,
+        isMainMenu: true,
+    },
+    [AppRoutes.LIBRARY]: {
+        path: getRouteLibrary(),
+        nameKey: AppRoutes.LIBRARY,
+        element: <div>Страница библиотеки</div>,
+        isMainMenu: true,
     },
     [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),
         element: <SettingsPage />,
-        name: 'Настройки',
+        isMainMenu: true,
+        nameKey: AppRoutes.SETTINGS,
     },
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
         element: <ProfilePage />,
-        name: 'Профиль',
+        nameKey: AppRoutes.PROFILE,
         authOnly: true,
+        isMainMenu: false,
     },
-    [AppRoutes.APPS]: {
-        path: getRouteApps(),
-        element: <AppsPage />,
-        name: 'Игры',
-    },
-    [AppRoutes.APP_DETAILS]: {
-        path: getRouteAppDetails(':id'),
-        element: <AppDetailsPage />,
+    [AppRoutes.GAME_DETAILS]: {
+        path: getRouteGameDetails(':id'),
+        nameKey: AppRoutes.GAME_DETAILS,
+        element: <div>игра</div>,
+        isMainMenu: false,
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
         element: <ForbiddenPage />,
+        nameKey: AppRoutes.FORBIDDEN,
+        isMainMenu: false,
     },
     // last
     [AppRoutes.NOT_FOUND]: {
         path: '*',
         element: <NotFoundPage />,
+        nameKey: AppRoutes.NOT_FOUND,
+        isMainMenu: false,
     },
 };

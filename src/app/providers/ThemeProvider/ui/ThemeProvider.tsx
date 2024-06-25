@@ -1,7 +1,9 @@
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage.ts';
 import { Theme } from '@tauri-apps/api/window';
 import { ThemeContext, ThemeContextProps } from '@/shared/context/ThemeContext.ts';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
+import { ConfigProvider } from 'antd';
+import { getThemeConfig } from '@/app/providers/ThemeProvider/config/theme.ts';
 
 type ThemeProviderProps = {
     initialTheme?: Theme;
@@ -29,5 +31,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = props => {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
     }, [theme]);
 
-    return <ThemeContext.Provider value={defaultProps}>{props.children}</ThemeContext.Provider>;
+    const themeConfig = useMemo(() => {
+        return getThemeConfig(theme);
+    }, [theme]);
+
+    return (
+        <ThemeContext.Provider value={defaultProps}>
+            <ConfigProvider theme={themeConfig}>{props.children}</ConfigProvider>
+        </ThemeContext.Provider>
+    );
 };
