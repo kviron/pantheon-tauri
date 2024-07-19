@@ -1,0 +1,6 @@
+.sidebar {
+  background-color: var(--theme-color-bg);
+  color: var(--theme-color-text);
+
+  height: calc(98vh - var(--ant-layout-header-height));
+}

@@ -1,15 +1,24 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from '@/widgets/Navbar';
 import s from './MainLayout.module.scss';
-import cl from 'classnames';
+import { Layout, theme } from 'antd';
 
 export const MainLayout = () => {
+    const {
+        token: { colorBgContainer, borderRadiusLG },
+    } = theme.useToken();
+
     return (
-        <div className={cl(s.wrapper, 'App')}>
-            <Navbar />
-            <div className={s.content}>
+        <Layout>
+            <Layout.Header
+                style={{ backgroundColor: colorBgContainer }}
+                className={s.header}
+            >
+                <Navbar />
+            </Layout.Header>
+            <Layout.Content className={s.content}>
                 <Outlet />
-            </div>
-        </div>
+            </Layout.Content>
+        </Layout>
     );
 };

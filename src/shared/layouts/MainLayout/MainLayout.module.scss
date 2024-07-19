@@ -1,10 +1,10 @@
 .content {
-  padding-left: .5rem;
-  padding-right: .5rem;
+  height: calc(100vh - var(--ant-layout-header-height));
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+.header {
+  position: sticky;
+  top: 0;
+
+  border-bottom: var(--ant-line-width) var(--ant-line-type) var(--ant-color-split);
 }

@@ -4,6 +4,12 @@ import { theme as AntdTheme } from 'antd';
 
 const baseConfig: ThemeConfig = {
     token: {},
+    components: {
+        Layout: {
+            headerHeight: 45,
+            headerPadding: 0,
+        },
+    },
     cssVar: true,
 };
 
@@ -17,6 +23,5 @@ export const getThemeConfig = (theme: Theme): ThemeConfig => {
 
     return {
         ...baseConfig,
-        algorithm: AntdTheme.defaultAlgorithm,
     };
 };

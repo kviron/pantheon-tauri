@@ -14,7 +14,7 @@ import {
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
-import { GamesPage } from '@/pages/GamesPage';
+import { LibraryPage } from '@/pages/LibraryPage/ui/Page/LibraryPage.tsx';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
@@ -26,13 +26,13 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.GAMES]: {
         path: getRouteGames(),
         nameKey: AppRoutes.GAMES,
-        element: <GamesPage />,
+        element: <div>Игры</div>,
         isMainMenu: true,
     },
     [AppRoutes.LIBRARY]: {
         path: getRouteLibrary(),
         nameKey: AppRoutes.LIBRARY,
-        element: <div>Страница библиотеки</div>,
+        element: <LibraryPage/>,
         isMainMenu: true,
     },
     [AppRoutes.SETTINGS]: {

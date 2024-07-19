@@ -17,15 +17,13 @@
         "open": true
       }
     },
-    "systemTray": {
-      "iconPath": "icons/icon.png",
-      "iconAsTemplate": true
-    },
     "windows": [
       {
-        "title": "pantheon",
+        "title": "Pantheon",
+        "minWidth": 1024,
         "width": 1024,
-        "height": 800
+        "minHeight": 600,
+        "height": 600
       }
     ],
     "security": {
