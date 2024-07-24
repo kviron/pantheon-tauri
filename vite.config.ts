@@ -39,12 +39,11 @@ export default defineConfig(async () => ({
         __API__: JSON.stringify('http://localhost:8000'),
         __PROJECT__: JSON.stringify('frontend'),
     },
-    css: {
-        preprocessorOptions: {
-            // Import SCSS pre -compilation programs
-            scss: {
-                additionalData: `@use "@/app/styles/utils.scss" as *;`,
-            },
-        },
-    },
+    // css: {
+    //     preprocessorOptions: {
+    //         scss: {
+    //             additionalData: `@use "@/app/styles/utils.scss" as *;`,
+    //         },
+    //     },
+    // },
 }));

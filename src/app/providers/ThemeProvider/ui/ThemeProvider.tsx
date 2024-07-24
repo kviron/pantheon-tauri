@@ -4,6 +4,7 @@ import { ThemeContext, ThemeContextProps } from '@/shared/context/ThemeContext.t
 import { FC, useEffect, useMemo, useState } from 'react';
 import { ConfigProvider } from 'antd';
 import { getThemeConfig } from '@/app/providers/ThemeProvider/config/theme.ts';
+import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 type ThemeProviderProps = {
     initialTheme?: Theme;
@@ -27,7 +28,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = props => {
     }
 
     useEffect(() => {
-        document.body.className = theme === 'light' ? 'app_theme_light' : 'app_theme_dark';
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
     }, [theme]);
 
@@ -36,8 +36,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = props => {
     }, [theme]);
 
     return (
-        <ThemeContext.Provider value={defaultProps}>
-            <ConfigProvider theme={themeConfig}>{props.children}</ConfigProvider>
-        </ThemeContext.Provider>
+        <EmotionThemeProvider theme={themeConfig}>
+            <ThemeContext.Provider value={defaultProps}>
+                <ConfigProvider theme={themeConfig}>{props.children}</ConfigProvider>
+            </ThemeContext.Provider>
+        </EmotionThemeProvider>
     );
 };

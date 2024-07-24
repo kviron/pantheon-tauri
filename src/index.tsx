@@ -1,6 +1,5 @@
 /* @refresh reload */
 import 'reset-css';
-import '@/app/styles/index.scss';
 import './shared/config/i18n/i18n';
 import { createRoot } from 'react-dom/client';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';

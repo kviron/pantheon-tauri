@@ -1,6 +1,13 @@
 import s from './Navbar.module.scss';
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { Button, Menu, MenuProps } from 'antd';
+import {
+    ArrowLeftOutlined,
+    ArrowRightOutlined,
+    BellOutlined,
+    DownloadOutlined,
+    ProductOutlined,
+    SettingOutlined,
+} from '@ant-design/icons';
+import { Button, Menu, MenuProps, Space, Badge, Tooltip } from 'antd';
 import { routeConfig } from '@/app/providers/RouterProvider/config/routeConfig.tsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -31,6 +38,18 @@ export const Navbar = () => {
                 route: route.path,
                 key: route.path,
                 label: t(`navigate.${route.nameKey}`).toUpperCase(),
+                children:
+                    route.path === '/library'
+                        ? [
+                              {
+                                  label: 'Домашняя страница',
+                                  key: route.path,
+                                  route: route.path,
+                                  icon: <ProductOutlined />,
+                              },
+                              { label: 'Загрузки', key: '/downloads', icon: <DownloadOutlined /> },
+                          ]
+                        : null,
             };
         }
 
@@ -65,15 +84,46 @@ export const Navbar = () => {
             <div className={s.menu}>
                 <Menu
                     mode='horizontal'
+                    triggerSubMenuAction={'hover'}
                     onClick={onClick}
                     selectedKeys={[current]}
                     className={s.antdMenu}
                     items={items}
                 />
             </div>
-            <div className={s.tools}>
-                <ThemeSwitcher size={'large'} />
-            </div>
+            <Space>
+                <Tooltip
+                    placement='bottom'
+                    title={'Уведомления'}
+                >
+                    <Badge
+                        count={5}
+                        size={'small'}
+                    >
+                        <Button
+                            type={'text'}
+                            icon={<BellOutlined />}
+                        />
+                    </Badge>
+                </Tooltip>
+                <Tooltip
+                    placement='bottom'
+                    title={'Переключение темы'}
+                >
+                    <span>
+                        <ThemeSwitcher />
+                    </span>
+                </Tooltip>
+                <Tooltip
+                    placement='bottom'
+                    title={'Настройки'}
+                >
+                    <Button
+                        type={'text'}
+                        icon={<SettingOutlined />}
+                    />
+                </Tooltip>
+            </Space>
         </div>
     );
 };

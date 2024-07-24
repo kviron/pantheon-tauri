@@ -11,6 +11,7 @@ import {
     getRouteGames,
     getRouteGameDetails,
     getRouteLibrary,
+    getRouteDownLoads,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 import { SettingsPage } from '@/pages/SettingsPage';
@@ -32,7 +33,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.LIBRARY]: {
         path: getRouteLibrary(),
         nameKey: AppRoutes.LIBRARY,
-        element: <LibraryPage/>,
+        element: <LibraryPage />,
         isMainMenu: true,
     },
     [AppRoutes.SETTINGS]: {
@@ -40,6 +41,12 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <SettingsPage />,
         isMainMenu: true,
         nameKey: AppRoutes.SETTINGS,
+    },
+    [AppRoutes.Downloads]: {
+        path: getRouteDownLoads(),
+        element: <div>Загрузки</div>,
+        isMainMenu: false,
+        nameKey: AppRoutes.Downloads,
     },
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
