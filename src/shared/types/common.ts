@@ -1,8 +1,14 @@
-export interface File {
+export type SortOrder = 'asc' | 'desc';
+
+export enum AppType {
+    Game = 'game',
+}
+
+export interface FileDescription {
     path: string;
 }
 
-export interface FileImage extends File {
+export interface FileImage extends FileDescription {
     /** Alt текст картинки */
     alt: Nullable<string>;
     /** Title текст картинки */

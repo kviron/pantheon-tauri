@@ -1,22 +1,26 @@
-import { useTranslation } from 'react-i18next';
-import { AppLink } from '@/shared/ui/AppLink';
-import { LangSwitcher } from '@/features/LangSwitcher';
-import { Button, message } from 'antd';
+import { GameList } from '@/entities/Game/ui/GameList';
+import { useQuery } from '@tanstack/react-query';
+import { gameService } from '@/entities/Game';
 
 const MainPage = () => {
-    const { t } = useTranslation();
-
-    const showMessage = () => {
-        message.success('sdsdsdsssssssss');
-    };
+    const {
+        data: games,
+        isLoading,
+        isFetching,
+    } = useQuery({
+        queryKey: ['games'],
+        queryFn: () => gameService.getGames(),
+        select: data => data.data,
+        staleTime: 1000,
+    });
 
     return (
         <div>
-            <LangSwitcher short />
-            <AppLink href={'/'}>{t('navigate.main')} </AppLink>
-            <AppLink href={'/settings'}>{t('navigate.settings')} </AppLink>
-            <AppLink href={'/profile'}>{t('navigate.profile')} </AppLink>
-            <Button onClick={showMessage}>Сообщение</Button>
+            <GameList
+                games={games}
+                isLoading={isLoading}
+                isFetching={isFetching}
+            />
         </div>
     );
 };

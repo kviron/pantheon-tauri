@@ -5,7 +5,7 @@ import { Layout, theme } from 'antd';
 
 export const MainLayout = () => {
     const {
-        token: { colorBgContainer, borderRadiusLG },
+        token: { colorBgContainer },
     } = theme.useToken();
 
     return (

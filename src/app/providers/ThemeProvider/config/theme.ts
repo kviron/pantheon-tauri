@@ -2,6 +2,11 @@ import { ThemeConfig } from 'antd/es/config-provider/context';
 import { Theme } from '@tauri-apps/api/window';
 import { theme as AntdTheme } from 'antd';
 import { mergeDeep } from 'immutable';
+import type { GlobalToken } from 'antd/es/theme';
+
+const colorDarkPallete = {
+    surface: '#2b2b30',
+};
 
 const baseConfig: ThemeConfig = {
     token: {
@@ -21,17 +26,17 @@ const baseConfig: ThemeConfig = {
 const darkThemeConfig: ThemeConfig = {
     algorithm: AntdTheme.darkAlgorithm,
     token: {
-        colorBgContainer: '#2b2b30',
+        colorBgContainer: colorDarkPallete.surface,
         colorBgLayout: '#202023',
     },
     components: {
         Layout: {
-            siderBg: '#2b2b30',
+            siderBg: colorDarkPallete.surface,
         },
     },
 };
 
-export type PantheonTheme = typeof baseConfig;
+export type PantheonTheme = GlobalToken;
 
 export const getThemeConfig = (theme: Theme): ThemeConfig => {
     const lightTheme = { ...baseConfig };

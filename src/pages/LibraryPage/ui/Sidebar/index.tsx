@@ -1,48 +1,28 @@
-import { Input, List, Button, Avatar, Space } from 'antd';
+import { Input, List, Button, Skeleton } from 'antd';
 import { SearchOutlined, PlusOutlined, UserOutlined } from '@ant-design/icons';
-import { Resizer, Sidebar } from './controls.tsx';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Item, Resizer, Sidebar } from './controls.tsx';
+import { useLibraryStore } from '@/pages/LibraryPage/model/store.tsx';
+import { AppAvatar } from '@/shared/ui/AppAvatar';
+import { Game } from '@/entities/Game';
+import { useHorizontalResize } from '@/shared/hooks/useHorizontalResize.ts';
 
-export const LibraryPageSidebar = () => {
-    const data = ['Dota 2', 'The First Decendence', "Baldur's Gate 3", 'Asseto corsa', 'City Car Driving'];
+type LibraryPageSidebarProps = {
+    games?: Game[];
+    isLoading: boolean;
+    isFetching: boolean;
+};
 
-    const sidebarRef = useRef<Nullable<HTMLDivElement>>(null);
-    const [isResizing, setIsResizing] = useState(false);
-    const [sidebarWidth, setSidebarWidth] = useState(268);
+export const LibraryPageSidebar = (props: LibraryPageSidebarProps) => {
+    const { games, isLoading } = props;
+    const { setSelectGame, selectedGame } = useLibraryStore();
 
-    const startResizing = useCallback(() => {
-        setIsResizing(true);
-    }, []);
-
-    const stopResizing = useCallback(() => {
-        setIsResizing(false);
-    }, []);
-
-    const resize = useCallback(
-        (mouseMoveEvent: MouseEvent) => {
-            if (isResizing && sidebarRef.current) {
-                const newWidth = mouseMoveEvent.clientX - sidebarRef.current.getBoundingClientRect().left;
-                if (newWidth > 200 && newWidth < 600) {
-                    setSidebarWidth(newWidth);
-                }
-                document.body.style.userSelect = 'none';
-                document.body.style.cursor = 'col-resize';
-            } else {
-                document.body.style.userSelect = '';
-                document.body.style.cursor = '';
-            }
-        },
-        [isResizing],
-    );
-
-    useEffect(() => {
-        window.addEventListener('mousemove', resize);
-        window.addEventListener('mouseup', stopResizing);
-        return () => {
-            window.removeEventListener('mousemove', resize);
-            window.removeEventListener('mouseup', stopResizing);
-        };
-    }, [resize, stopResizing]);
+    const {
+        isResizing,
+        resizerRef,
+        startResizing,
+        ref: sidebarRef,
+        width: sidebarWidth,
+    } = useHorizontalResize({ minWidth: 200, initWidth: 270, maxWidth: 600 });
 
     return (
         <Sidebar
@@ -50,42 +30,51 @@ export const LibraryPageSidebar = () => {
             width={sidebarWidth}
             style={{ transition: 'none' }}
         >
-            <div style={{ padding: '.5rem', display: 'flex', gap: '.5rem' }}>
-                <Input
-                    placeholder='Поиск'
-                    prefix={<SearchOutlined />}
-                />
-                <Button type={'dashed'}>
-                    <PlusOutlined />
-                </Button>
-            </div>
-            {/*<div style={{ height: '100%' }}>*/}
-            {/*    <Empty*/}
-            {/*        image={Empty.PRESENTED_IMAGE_SIMPLE}*/}
-            {/*        description={'Здесь пока нет ни одной игры'}*/}
-            {/*    />*/}
-            {/*</div>*/}
-            <div>
-                <List
-                    dataSource={data}
-                    renderItem={item => (
-                        <List.Item
-                            style={{ padding: '.5rem' }}
-                            onContextMenu={e => console.log(e)}
+            <List
+                loading={isLoading}
+                size={'small'}
+                header={
+                    <div style={{ padding: '.5rem', display: 'flex', gap: '.5rem' }}>
+                        <Input
+                            placeholder='Поиск'
+                            prefix={<SearchOutlined />}
+                        />
+                        <Button type={'dashed'}>
+                            <PlusOutlined />
+                        </Button>
+                    </div>
+                }
+                dataSource={games}
+                renderItem={item => (
+                    <Item
+                        isActive={item.id === selectedGame?.id}
+                        onClick={() => {
+                            setSelectGame(item);
+                        }}
+                        onContextMenu={(e: any) => console.log(e)}
+                    >
+                        <Skeleton
+                            loading={isLoading}
+                            avatar
+                            active
                         >
-                            <Space>
-                                <Avatar
-                                    shape='square'
-                                    size={'small'}
-                                    icon={<UserOutlined />}
-                                />
-                                {item}
-                            </Space>
-                        </List.Item>
-                    )}
-                />
-            </div>
+                            <List.Item.Meta
+                                avatar={
+                                    <AppAvatar
+                                        src={item.icon?.path}
+                                        shape='square'
+                                        size={'small'}
+                                        icon={<UserOutlined />}
+                                    />
+                                }
+                                title={item.name}
+                            ></List.Item.Meta>
+                        </Skeleton>
+                    </Item>
+                )}
+            />
             <Resizer
+                ref={resizerRef}
                 onMouseDown={startResizing}
                 isResizing={isResizing}
             />

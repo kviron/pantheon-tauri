@@ -1,14 +1,24 @@
 import { Layout } from 'antd';
 import { LibraryPageSidebar } from '../Sidebar';
-import css from './LibraryPage.module.scss';
-
-const { Content } = Layout;
+import { LibraryPageContent } from '@/pages/LibraryPage/ui/Content';
+import { useQuery } from '@tanstack/react-query';
+import { gameService } from '@/entities/Game';
 
 export const LibraryPage = () => {
+    const { data, isFetching, isLoading } = useQuery({
+        queryKey: ['games', 'library'],
+        queryFn: () => gameService.getGames(),
+        select: data => data.data,
+    });
+
     return (
-        <Layout style={{ display: 'flex' }}>
-            <LibraryPageSidebar />
-            <Content className={css.content}>Контент</Content>
+        <Layout>
+            <LibraryPageSidebar
+                games={data}
+                isLoading={isLoading}
+                isFetching={isFetching}
+            />
+            <LibraryPageContent />
         </Layout>
     );
 };

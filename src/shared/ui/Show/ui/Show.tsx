@@ -1,17 +1,31 @@
 import { ReactNode } from 'react';
+import { Spin } from 'antd';
 
 type ShowProps = {
-    children?: ReactNode;
-    fallback?: ReactNode;
-    when: any;
+    children: ReactNode;
+    fallback?: Nullable<ReactNode>;
+    isLoading?: boolean;
+    when: boolean;
 };
 
 export const Show = (props: ShowProps) => {
-    const { children, when, fallback } = props;
+    const { children, when, fallback = null, isLoading = false } = props;
 
-    if (!when) {
-        return fallback ?? null;
+    if (isLoading) {
+        return (
+            <div
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                <Spin />
+            </div>
+        );
     }
 
-    return <>{children}</>;
+    return !when ? fallback : children;
 };

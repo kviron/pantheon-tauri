@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import App from '@/app/App.tsx';
 import { StrictMode } from 'react';
 import { App as AntdAppProvider } from 'antd';
+import { QueryProvider } from '@/app/providers/QueryProvider';
 
 const container = document.getElementById('root');
 
@@ -19,11 +20,13 @@ const root = createRoot(container);
 root.render(
     <StrictMode>
         <ErrorBoundary>
-            <ThemeProvider>
-                <AntdAppProvider>
-                    <App />
-                </AntdAppProvider>
-            </ThemeProvider>
+            <QueryProvider>
+                <ThemeProvider>
+                    <AntdAppProvider>
+                        <App />
+                    </AntdAppProvider>
+                </ThemeProvider>
+            </QueryProvider>
         </ErrorBoundary>
     </StrictMode>,
 );

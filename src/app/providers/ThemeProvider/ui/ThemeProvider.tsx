@@ -4,7 +4,7 @@ import { ThemeContext, ThemeContextProps } from '@/shared/context/ThemeContext.t
 import { FC, useEffect, useMemo, useState } from 'react';
 import { ConfigProvider } from 'antd';
 import { getThemeConfig } from '@/app/providers/ThemeProvider/config/theme.ts';
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { EmotionProvider } from '@/app/providers/ThemeProvider/ui/EmotionProvide.tsx';
 
 type ThemeProviderProps = {
     initialTheme?: Theme;
@@ -36,10 +36,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = props => {
     }, [theme]);
 
     return (
-        <EmotionThemeProvider theme={themeConfig}>
-            <ThemeContext.Provider value={defaultProps}>
-                <ConfigProvider theme={themeConfig}>{props.children}</ConfigProvider>
-            </ThemeContext.Provider>
-        </EmotionThemeProvider>
+        <ThemeContext.Provider value={defaultProps}>
+            <ConfigProvider theme={themeConfig}>
+                <EmotionProvider>{props.children}</EmotionProvider>
+            </ConfigProvider>
+        </ThemeContext.Provider>
     );
 };

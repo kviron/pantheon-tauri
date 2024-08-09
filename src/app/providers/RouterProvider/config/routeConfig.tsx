@@ -27,7 +27,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.GAMES]: {
         path: getRouteGames(),
         nameKey: AppRoutes.GAMES,
-        element: <div>Игры</div>,
+        element: <MainPage />,
         isMainMenu: true,
     },
     [AppRoutes.LIBRARY]: {

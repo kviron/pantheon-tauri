@@ -65,7 +65,7 @@ export const Navbar = () => {
         if (current !== location.pathname) {
             setCurrent(location.pathname);
         }
-    }, [location.pathname]);
+    }, [current, location.pathname]);
 
     return (
         <div className={s.wrapper}>
