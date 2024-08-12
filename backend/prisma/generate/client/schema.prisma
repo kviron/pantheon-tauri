@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "generate/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  email    String  @unique
+  name     String?
+  password String
+
+  age         Int?
+  gender      String?
+  dateOfBirth DateTime?
+  role        Role      @default(USER)
+
+  @@map("users")
+}
+
+model Application {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  releaseDate DateTime @updatedAt @map("release_date")
+
+  name        String
+  description String
+  geners      Gener[]
+  steamId     Int?    @map("steam_id")
+  rating      Int     @default(0)
+  size        Int?    @default(0)
+  isModding   Boolean @default(false) @map("is_modding")
+
+  developer   Developer? @relation(fields: [developerId], references: [id])
+  developerId Int?
+
+  publisher   Publisher? @relation(fields: [publisherId], references: [id])
+  publisherId Int?
+
+  minReqCpu  String? @map("min_req_cpu")
+  minReqGpu  String? @map("min_req_gpu")
+  minReqRam  String? @map("min_req_ram")
+  minReqOs   String? @map("min_req_os")
+  minReqSize String? @map("min_req_size")
+  minReqAdd  String? @map("min_req_add")
+
+  recReqCpu  String? @map("rec_req_cpu")
+  recReqGpu  String? @map("rec_req_gpu")
+  recReqRam  String? @map("rec_req_ram")
+  recReqOs   String? @map("rec_req_os")
+  recReqSize String? @map("rec_req_size")
+  recReqAdd  String? @map("rec_req_add")
+
+  @@map("applications")
+}
+
+model Gener {
+  id           Int           @id @default(autoincrement())
+  name         String
+  slug         String
+  applications Application[]
+
+  @@map("geners")
+}
+
+model Developer {
+  id           Int           @id @default(autoincrement())
+  name         String
+  applications Application[]
+}
+
+model Publisher {
+  id           Int           @id @default(autoincrement())
+  name         String
+  applications Application[]
+}
+
+model File {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  title     String?
+  alt       String?
+  caption   String?
+  path      String
+  mimeType  String?  @map("mime_type")
+}

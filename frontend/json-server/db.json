@@ -1,0 +1,481 @@
+{
+  "games": [
+    {
+      "name": "Baldur's Gate 3",
+      "steamId": "1086940",
+      "id": "1",
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_73d93bea842b93914d966622104dcb8c0f42972b.1920x1080.jpg?t=1721123311"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_cf936d31061b58e98e0c646aee00e6030c410cda.1920x1080.jpg?t=1721123311"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_b6a6ee6e046426d08ceea7a4506a1b5f44181543.1920x1080.jpg?t=1721123311"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_6b8faba0f6831a406ce015648958da9612d14dbb.1920x1080.jpg?t=1721123311"
+        }
+      ],
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "/images/baldurs_gate_3/48x48.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/4faf57e033eaa65158defcae7ae3d30f.jpg"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/71d9945703c17fafe19f7dd1c706d448.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/2ddd2ff467042c2d0d238ddfbc77c0fb.webp"
+      },
+      "isModding": true,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Larian studios",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 5,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "The First Descendant",
+      "id": "2",
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "/images/the_first_descendant/48x48.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/ffb659bf6fea0a0dfd9118d8fd0fce59.webp"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/ae60be15b68418afab23aad1744c1095.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/8b26adcf1aad698efe2d2bd030e96f22.png"
+      },
+      "isModding": true,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 3.5,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "7 Days to Die",
+      "id": "3",
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/icon/cab8961422e0f17f3795d82388e9204b/32/48x48.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/c2e1767dee0b00aadf6f4a087ea182f9.jpg"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/4f3d7d38d24b740c95da2b03dc3a2333.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/9aeeadc118ff7a6797e7b28f39e8d4d1.png"
+      },
+      "isModding": true,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 3.5,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "Beat Saber",
+      "id": "4",
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/icon/32e3b25cfdadc8779a12ddc58c0b2a8d/32/48x48.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/914101ec47c52b48a7b6ccc6f5a76f1f.png"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/0cb5ebb1b34ec343dfe135db691e4a85.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/02b293533a7ab5cb9362b406c8e402fd.png"
+      },
+      "isModding": true,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 4.8,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "Dota 2",
+      "id": "5",
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/016593245beddeaca1d621d5abdcdabc.webp"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/a0b45d1bb84fe1bedbb8449764c4d5d5.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/fa0d413d4aba0826be3787e94da25dd2.png"
+      },
+      "isModding": false,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 4.8,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "Lost Ark",
+      "id": "6",
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/icon/d77314b5c23c087d9b5ed587e88800d2.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/7800d0f0f334c2321b199f08fbfbe476.jpg"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/1a4f44ed6b4af67129c6c0b1564a2120.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/a0021532ce8ea9fb7d13ea5d30fbc5e5.jpg"
+      },
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "isModding": false,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 4.8,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    },
+    {
+      "name": "Elden Ring",
+      "id": "7",
+      "steamId": "1245620",
+      "icon": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/icon/7316e11fe78963395fbab4a85d0b8f85/32/64x64.png"
+      },
+      "banner": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/hero/c73f4d8f3e0c84920eef1464c4c73cb8.jpg"
+      },
+      "logo": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/logo/6076036fdb272f49688c571013f3ede1.png"
+      },
+      "gridImage": {
+        "alt": null,
+        "title": null,
+        "path": "https://cdn2.steamgriddb.com/grid/a0abf0396a718b8982fce0b80181d8cb.png"
+      },
+      "gallery": [
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_72b515ee7afdcd2d95b142ee1a706fd71d74552d.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b55b78b901985900ef0bba95288f5fd314c1751f.1920x1080.jpg?t=1721698528"
+        },
+        {
+          "alt": null,
+          "title": null,
+          "path": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2074920/ss_b3313c29ad748d1bd4e67fb13d8e09e4ccb090c7.1920x1080.jpg?t=1721698528"
+        }
+      ],
+      "isModding": false,
+      "description": "Описание игры",
+      "genre": [],
+      "developer": "Разработчик",
+      "createDate": "2020-01-01T00:00:00",
+      "publisher": "Издатель",
+      "rating": 4.8,
+      "size": 2324245235,
+      "updateDate": "2020-01-01T00:00:00",
+      "releaseDate": "2020-01-01T00:00:00",
+      "minimalRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      },
+      "recommendedRequirements": {
+        "cpu": "Intel core i3 2600",
+        "gpu": "Nvidia Geforce RTX 2060",
+        "ram": "16 Gb",
+        "os": "Windows",
+        "size": "140 GB",
+        "addition": "Дополнительный текст"
+      }
+    }
+  ]
+}

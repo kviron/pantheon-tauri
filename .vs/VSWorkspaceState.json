@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\shared",
+    "\\src\\shared\\ui",
+    "\\src\\shared\\ui\\AppLink"
+  ],
+  "SelectedNode": "\\src\\shared\\ui\\AppLink\\AppLink.tsx",
+  "PreviewInSolutionExplorer": false
+}
