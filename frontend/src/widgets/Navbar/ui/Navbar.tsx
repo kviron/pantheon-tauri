@@ -1,35 +1,35 @@
-import s from './Navbar.module.scss';
+import s from './Navbar.module.scss'
 import {
     ArrowLeftOutlined,
     ArrowRightOutlined,
     BellOutlined,
     DownloadOutlined,
     ProductOutlined,
-    SettingOutlined,
-} from '@ant-design/icons';
-import { Button, Menu, MenuProps, Space, Badge, Tooltip } from 'antd';
-import { routeConfig } from '@/app/providers/RouterProvider/config/routeConfig.tsx';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher/ui/ThemeSwitcher.tsx';
-import { useEffect, useState } from 'react';
-import { AppRoutes } from '@/shared/const/router.ts';
+    SettingOutlined
+} from '@ant-design/icons'
+import { Button, Menu, MenuProps, Space, Badge, Tooltip } from 'antd'
+import { routeConfig } from '@/app/providers/RouterProvider/config/routeConfig.tsx'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { ThemeSwitcher } from '@/features/themeSwitcher/ui/ThemeSwitcher.tsx'
+import { useEffect, useState } from 'react'
+import { AppRoutes } from '@/shared/const/router.ts'
 
-type MenuItem = Required<MenuProps>['items'][number];
+type MenuItem = Required<MenuProps>['items'][number]
 
 export const Navbar = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const [current, setCurrent] = useState(location.pathname ?? AppRoutes.GAMES);
-    const { t } = useTranslation();
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [current, setCurrent] = useState(location.pathname ?? AppRoutes.GAMES)
+    const { t } = useTranslation()
 
     const handleGoBack = () => {
-        navigate(-1);
-    };
+        navigate(-1)
+    }
 
     const handleGoForward = () => {
-        navigate(1);
-    };
+        navigate(1)
+    }
 
     const items: MenuItem[] = Object.values(routeConfig).map(route => {
         if (route.path && route.isMainMenu) {
@@ -45,27 +45,27 @@ export const Navbar = () => {
                                   label: 'Домашняя страница',
                                   key: route.path,
                                   route: route.path,
-                                  icon: <ProductOutlined />,
+                                  icon: <ProductOutlined />
                               },
-                              { label: 'Загрузки', key: '/downloads', icon: <DownloadOutlined /> },
+                              { label: 'Загрузки', key: '/downloads', icon: <DownloadOutlined /> }
                           ]
-                        : null,
-            };
+                        : null
+            }
         }
 
-        return null;
-    });
+        return null
+    })
 
     const onClick: MenuProps['onClick'] = e => {
-        navigate(e.key);
-        setCurrent(e.key);
-    };
+        navigate(e.key)
+        setCurrent(e.key)
+    }
 
     useEffect(() => {
         if (current !== location.pathname) {
-            setCurrent(location.pathname);
+            setCurrent(location.pathname)
         }
-    }, [current, location.pathname]);
+    }, [current, location.pathname])
 
     return (
         <div className={s.wrapper}>
@@ -125,5 +125,5 @@ export const Navbar = () => {
                 </Tooltip>
             </Space>
         </div>
-    );
-};
+    )
+}

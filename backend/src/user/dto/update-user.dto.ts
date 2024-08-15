@@ -1,4 +1,28 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateUserDto } from './create-user.dto';
+import { PartialType } from '@nestjs/mapped-types'
+import { CreateUserDto } from './create-user.dto'
+import {
+	IsDateString,
+	IsEnum,
+	IsOptional,
+	IsPhoneNumber
+} from 'class-validator'
+import { Gender } from '@prisma/client'
+import { Transform } from 'class-transformer'
 
-export class UpdateUserDto extends PartialType(CreateUserDto) {}
+export class UpdateUserDto extends PartialType(CreateUserDto) {
+	@IsOptional()
+	name?: string
+
+	@IsOptional()
+	@IsPhoneNumber()
+	phoneNumber?: string
+
+	@IsOptional()
+	@IsDateString()
+	dateOfBirth?: string
+
+	@IsOptional()
+	@IsEnum(Gender)
+	@Transform(value => ('' + value).toLowerCase())
+	gender?: Gender
+}
