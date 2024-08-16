@@ -12,13 +12,16 @@ import {
 import { AuthService } from './auth.service'
 import { AuthDto } from './dto/auth.dto'
 import { Response, Request } from 'express'
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
 
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
+	@ApiOperation({ summary: 'Login user' })
 	@Post('login')
 	async login(@Body() dto: AuthDto, @Res({ passthrough: true }) res: Response) {
 		const { refreshToken, ...response } = await this.authService.login(dto)
@@ -27,6 +30,8 @@ export class AuthController {
 		return response
 	}
 
+	@ApiOperation({ summary: 'Register user' })
+	@ApiResponse({ status: 200, description: 'Bad request' })
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post('register')
@@ -40,6 +45,7 @@ export class AuthController {
 		return response
 	}
 
+	@ApiOperation({ summary: 'User logout' })
 	@HttpCode(200)
 	@Post('logout')
 	async logout(@Res({ passthrough: true }) res: Response) {
