@@ -1,33 +1,28 @@
 import { $api } from '@/shared/api/api.ts'
-import Cookies from 'js-cookie'
-
-export enum ETokens {
-    ACCESS_TOKEN = 'access_token',
-    REFRESH_TOKEN = 'refresh_token'
-}
+import { AuthForm } from './auth.types.ts'
+import { authTokenService } from './auth.token.service'
+import { AxiosResponse } from 'axios'
+import { User } from '@/entities/User/model/user.types.ts'
 
 class AuthService {
-    getAccessToken() {
-        const accessToken = Cookies.get(ETokens.ACCESS_TOKEN)
-        return accessToken || null
+    isAuth: boolean = false
+
+    async register(data: any) {
+        const response = await $api.post(`/auth/register`, data)
+
+        if (response.data.accessToken) authTokenService.saveAccessToken(response.data.accessToken)
+
+        this.isAuth = true
+
+        return response
     }
 
-    saveAccessToken(token: string) {
-        Cookies.set(ETokens.ACCESS_TOKEN, token, {
-            domain: 'localhost',
-            sameSite: 'strict',
-            expires: 1
-        })
-    }
+    async login(data: AuthForm): Promise<AxiosResponse<{ user: User; accessToken: string }>> {
+        const response = await $api.post(`/auth/login`, data)
 
-    removeAccessToken() {
-        Cookies.remove(ETokens.ACCESS_TOKEN)
-    }
+        if (response.data.accessToken) authTokenService.saveAccessToken(response.data.accessToken)
 
-    async main(type: 'login' | 'register', data: any) {
-        const response = await $api.post(`/auth/${type}`, data)
-
-        if (response.data.accessToken) this.saveAccessToken(response.data.accessToken)
+        this.isAuth = true
 
         return response
     }
@@ -35,7 +30,7 @@ class AuthService {
     async getNewTokens() {
         const response = await $api.post('/auth/login/access-token')
 
-        if (response.data.accessToken) this.saveAccessToken(response.data.accessToken)
+        if (response.data.accessToken) authTokenService.saveAccessToken(response.data.accessToken)
 
         return response
     }
@@ -43,7 +38,9 @@ class AuthService {
     async logout() {
         const response = await $api.post<boolean>('/auth/logout')
 
-        if (response.data) this.removeAccessToken()
+        if (response.data) authTokenService.removeAccessToken()
+
+        this.isAuth = false
 
         return response
     }

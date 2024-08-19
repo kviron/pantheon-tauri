@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next'
 import { ThemeSwitcher } from '@/features/themeSwitcher/ui/ThemeSwitcher.tsx'
 import { useEffect, useState } from 'react'
 import { AppRoutes } from '@/shared/const/router.ts'
+import { useAuth } from '@/features/auth'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -21,7 +22,8 @@ export const Navbar = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [current, setCurrent] = useState(location.pathname ?? AppRoutes.GAMES)
-    const { t } = useTranslation()
+    const { t } = useTranslation('navigate')
+    const { currentUser } = useAuth()
 
     const handleGoBack = () => {
         navigate(-1)
@@ -32,12 +34,12 @@ export const Navbar = () => {
     }
 
     const items: MenuItem[] = Object.values(routeConfig).map(route => {
-        if (route.path && route.isMainMenu) {
+        if (route.isMainMenu) {
             return {
                 type: 'item',
                 route: route.path,
                 key: route.path,
-                label: t(`navigate.${route.nameKey}`).toUpperCase(),
+                label: t(`${route.nameKey}`).toUpperCase(),
                 children:
                     route.path === '/library'
                         ? [
@@ -55,6 +57,15 @@ export const Navbar = () => {
 
         return null
     })
+
+    if (currentUser && routeConfig.profile.path) {
+        const profileItem: MenuItem = {
+            type: 'item',
+            key: routeConfig.profile.path,
+            label: currentUser.email.toUpperCase()
+        }
+        items.push(profileItem)
+    }
 
     const onClick: MenuProps['onClick'] = e => {
         navigate(e.key)
@@ -87,7 +98,6 @@ export const Navbar = () => {
                     triggerSubMenuAction={'hover'}
                     onClick={onClick}
                     selectedKeys={[current]}
-                    className={s.antdMenu}
                     items={items}
                 />
             </div>

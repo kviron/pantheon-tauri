@@ -1,11 +1,12 @@
-import { routeConfig } from '../config/routeConfig';
-import { createHashRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import { MainLayout } from '@/shared/layouts/MainLayout';
-import { ErrorPage } from '@/pages/ErrorPage';
-import { Suspense } from 'react';
+import { routeConfig } from '../config/routeConfig'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { MainLayout } from '@/shared/layouts/MainLayout'
+import { ErrorPage } from '@/pages/ErrorPage'
+import { Suspense } from 'react'
+import { CenterLayout } from '@/shared/layouts/CenterLayout'
 
 const AppRouter = () => {
-    const router = createHashRouter(
+    const router = createBrowserRouter(
         createRoutesFromElements(
             <Route
                 path='/'
@@ -16,19 +17,27 @@ const AppRouter = () => {
                     <Route
                         key={route.path}
                         path={route.path}
-                        element={<Suspense fallback={<div>загрузка...</div>}>{route.element}</Suspense>}
+                        element={
+                            route.path === '/login' || route.path === '/register' ? (
+                                <CenterLayout>
+                                    <Suspense fallback={<div>загрузка...</div>}>{route.element}</Suspense>
+                                </CenterLayout>
+                            ) : (
+                                <Suspense fallback={<div>загрузка...</div>}>{route.element}</Suspense>
+                            )
+                        }
                     />
                 ))}
-            </Route>,
-        ),
-    );
+            </Route>
+        )
+    )
 
     return (
         <RouterProvider
             router={router}
             fallbackElement={<p>Loading...</p>}
         />
-    );
-};
+    )
+}
 
-export default AppRouter;
+export default AppRouter

@@ -1,6 +1,6 @@
-import { UserRole } from './model/const.ts';
-import { UserSchema } from './model/types.ts';
-import { useUserStore } from './model/store.ts';
+import { UserRole } from './model/user.const.ts'
+import { UserSchema } from './model/user.types.ts'
+import { useUserStore } from './model/user.store.ts'
 
-export { UserRole, useUserStore };
-export type { UserSchema };
+export { UserRole, useUserStore }
+export type { UserSchema }

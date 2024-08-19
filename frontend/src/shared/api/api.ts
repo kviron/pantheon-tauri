@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, CreateAxiosDefaults } from 'axios'
 import { errorCatch } from '@/shared/api/error.ts'
-import { authService } from 'src/features/auth'
+import { authService } from '@/features/auth'
+import { authTokenService } from '@/features/auth/model/auth.token.service.ts'
 
 const options: CreateAxiosDefaults = {
     baseURL: __API__,
@@ -14,7 +15,7 @@ export const $api = axios.create(options)
 export const $apiAuth = axios.create(options)
 
 $apiAuth.interceptors.request.use(config => {
-    const accessToken = authService.getAccessToken()
+    const accessToken = authTokenService.getAccessToken()
 
     if (config?.headers && accessToken) {
         config.headers.Authorization = `Bearer ${accessToken}`
@@ -41,7 +42,7 @@ $apiAuth.interceptors.response.use(
                 await authService.getNewTokens()
                 return $apiAuth.request(originalRequest)
             } catch (e) {
-                if (errorCatch(error) === 'jwt expired') authService.removeAccessToken()
+                if (errorCatch(error) === 'jwt expired') authTokenService.removeAccessToken()
             }
         }
 

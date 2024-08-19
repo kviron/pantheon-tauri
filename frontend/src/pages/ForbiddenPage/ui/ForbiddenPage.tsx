@@ -1,5 +1,8 @@
-const ForbiddenPage = () => {
-    return <div>Страница не доступна вам</div>;
-};
+import { useTranslation } from 'react-i18next'
 
-export default ForbiddenPage;
+const ForbiddenPage = () => {
+    const { t } = useTranslation()
+    return <div>{t('Forbidden')}</div>
+}
+
+export default ForbiddenPage

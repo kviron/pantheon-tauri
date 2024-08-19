@@ -1,1 +1,3 @@
-export { ProfilePageAsync as ProfilePage } from './ui/ProfilePage.async';
+import ProfilePage from '@/pages/ProfilePage/ui/ProfilePage.tsx'
+
+export { ProfilePage }

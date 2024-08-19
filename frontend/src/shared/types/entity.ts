@@ -1,12 +1,10 @@
 export interface Entity {
     /** Унификатор */
-    id: UUID;
-    /** Название */
-    name: string;
+    id: UUID
     /** Дата добавления */
-    createDate: string;
+    createdAt: string
     /** Дата обновления */
-    updateDate: string;
+    updatedAt: string
 }
 
 export interface Genre extends Entity {}

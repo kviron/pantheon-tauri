@@ -1,18 +1,16 @@
-import { Link, LinkProps, Path } from 'react-router-dom';
-import { memo, ReactNode } from 'react';
-import s from './AppLink.module.scss';
-import cl from 'classnames';
-import { ThemeColors } from '@/shared/types/theme.ts';
+import { Link, LinkProps, Path } from 'react-router-dom'
+import { memo, ReactNode } from 'react'
+import s from './AppLink.module.scss'
+import cl from 'classnames'
 
-interface AppLinkProps extends Omit<LinkProps, 'color' | 'to'> {
-    className?: string;
-    children?: ReactNode;
-    href: string | Partial<Path>;
-    color?: ThemeColors;
+interface AppLinkProps extends Omit<LinkProps, 'to'> {
+    className?: string
+    children?: ReactNode
+    href: string | Partial<Path>
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
-    const { href, className, children, color = 'primary', ...otherProps } = props;
+    const { href, className, children, color = 'primary', ...otherProps } = props
 
     return (
         <Link
@@ -22,5 +20,5 @@ export const AppLink = memo((props: AppLinkProps) => {
         >
             {children}
         </Link>
-    );
-});
+    )
+})

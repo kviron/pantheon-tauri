@@ -1,9 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const ProfilePage = () => {
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>()
+    const { t } = useTranslation('profile')
 
-    return <div>Страница профиля id: {id}</div>;
-};
+    return (
+        <div>
+            {t('Page profile')} {id}
+        </div>
+    )
+}
 
-export default ProfilePage;
+export default ProfilePage

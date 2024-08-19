@@ -1,1 +1,3 @@
-export { SettingsPageAsync as SettingsPage } from '@/pages/SettingsPage/ui/Page/SettingsPage.async';
+import SettingsPage from './ui/Page/SettingsPage.tsx'
+
+export { SettingsPage }

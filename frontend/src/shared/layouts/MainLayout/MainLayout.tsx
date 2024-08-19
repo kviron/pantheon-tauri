@@ -1,12 +1,12 @@
-import { Outlet } from 'react-router-dom';
-import { Navbar } from '@/widgets/Navbar';
-import s from './MainLayout.module.scss';
-import { Layout, theme } from 'antd';
+import { Outlet } from 'react-router-dom'
+import s from './MainLayout.module.scss'
+import { Layout, theme } from 'antd'
+import { Navbar } from '@/widgets/Navbar'
 
 export const MainLayout = () => {
     const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+        token: { colorBgContainer }
+    } = theme.useToken()
 
     return (
         <Layout>
@@ -20,5 +20,5 @@ export const MainLayout = () => {
                 <Outlet />
             </Layout.Content>
         </Layout>
-    );
-};
+    )
+}
